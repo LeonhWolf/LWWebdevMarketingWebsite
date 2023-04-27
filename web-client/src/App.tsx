@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import Navbar from "./components/Navbar";
+import "./i18n";
 import "./App.css";
 import "./scss/full.scss";
 

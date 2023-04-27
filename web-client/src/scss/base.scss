@@ -5,6 +5,8 @@
 
 // MUST BE LOADED FIRST
 // @import "./customVariables.scss";
+$secondary: #ff8900;
+$offcanvas-horizontal-width: 250px;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "/node_modules/bootstrap/scss/variables";
@@ -18,3 +20,5 @@
 @import "/node_modules/bootstrap/scss/root";
 
 // @import "./customClasses.scss";
+@import "/node_modules/bootstrap/scss/utilities";
+@import "/node_modules/bootstrap/scss/utilities/api";
