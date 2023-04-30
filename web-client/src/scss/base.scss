@@ -5,7 +5,15 @@
 
 // MUST BE LOADED FIRST
 // @import "./customVariables.scss";
+$primary: #0088f1;
 $secondary: #ff8900;
+$text-base-color: yellow;
+$btn-border-radius: 0;
+$btn-font-family: "DIN2014";
+$btn-font-weight: 700;
+$btn-padding-y: 15px;
+$btn-padding-x: 30px;
+$btn-color: white;
 $offcanvas-horizontal-width: 250px;
 
 // 3. Include remainder of required Bootstrap stylesheets

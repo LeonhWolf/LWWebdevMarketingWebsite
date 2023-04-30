@@ -39,7 +39,10 @@ const Navbar = () => {
   ];
 
   const mailIconElement = (
-    <div id="navbar-mail-icon-wrapper">
+    <div
+      id="navbar-mail-icon-wrapper"
+      onClick={() => offcanvasBootstrapElement.current?.hide()}
+    >
       <img
         id="navbar-mail-icon-secondary"
         className="navbar-mail-icon"

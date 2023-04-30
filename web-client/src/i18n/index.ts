@@ -5,7 +5,7 @@ import en from "./en";
 import de from "./de";
 
 i18next.use(initReactI18next).init({
-  lng: "en",
+  lng: "de",
   resources: {
     en: {
       translation: en,

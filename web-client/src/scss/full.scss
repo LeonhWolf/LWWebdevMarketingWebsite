@@ -6,7 +6,7 @@
 @import "/node_modules/bootstrap/scss/utilities/api";
 @import "/node_modules/bootstrap/scss/navbar";
 @import "/node_modules/bootstrap/scss/offcanvas";
-// @import "/node_modules/bootstrap/scss/buttons";
+@import "/node_modules/bootstrap/scss/buttons";
 @import "/node_modules/bootstrap/scss/containers";
 @import "/node_modules/bootstrap/scss/grid";
 @import "/node_modules/bootstrap/scss/close";
@@ -18,6 +18,6 @@
 // @import "/node_modules/bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
-// @import "./customClasses.scss";
+@import "./customClasses.scss";
 
 // @import "../../../node_modules/bootstrap/scss/bootstrap";

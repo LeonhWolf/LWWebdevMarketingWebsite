@@ -1,0 +1,65 @@
+@import "../scss/base.scss";
+
+#wrapper {
+  padding-top: 70px;
+}
+
+#hero-big-title {
+  font-size: 3.9rem;
+}
+
+.hero-regular-text {
+  font-family: "DIN2014";
+  font-size: 1.8rem;
+  color: #22232a;
+}
+.hero-bold-text {
+  font-family: "DIN2014";
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: $secondary;
+}
+
+#orange-stripe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25vw;
+  height: 100vh;
+  z-index: -1;
+  background: $secondary;
+}
+#orange-tilted-stripe {
+  fill: $secondary;
+}
+
+#linkedin-icon {
+  transition: filter 100ms ease-in-out;
+
+  &:hover {
+    filter: brightness(150%);
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  #wrapper {
+    padding-top: 0;
+  }
+
+  #hero-big-title {
+    font-size: 3rem;
+  }
+
+  #hero-text-block {
+    margin-bottom: 50px;
+  }
+  #hero-description-text {
+    text-align: center;
+  }
+  .hero-regular-text {
+    font-size: 1.1rem;
+  }
+  .hero-bold-text {
+    font-size: 1.1rem;
+  }
+}
