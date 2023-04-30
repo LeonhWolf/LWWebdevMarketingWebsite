@@ -2,6 +2,7 @@
   font-family: "DIN2014";
   font-size: 1rem;
   letter-spacing: 0.3rem;
+  font-weight: 400;
   text-transform: uppercase;
   margin: 0;
   color: rgba(0, 0, 0, 0.5);
@@ -10,6 +11,12 @@
   font-family: "HankenGrotesk";
   font-weight: 700;
   margin: 0;
+}
+
+.section-wrapper {
+  $padding-top-bottom: 100px;
+  padding-top: $padding-top-bottom;
+  padding-bottom: $padding-top-bottom;
 }
 
 .btn {

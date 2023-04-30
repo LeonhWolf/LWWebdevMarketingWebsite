@@ -21,8 +21,23 @@ export interface IHero {
   };
 }
 
+interface ICard {
+  [key: string]: string;
+  title: string;
+  bodyText: string;
+}
+export interface IService {
+  [key: string]: string | Object;
+  smallTitleText: string;
+  bigTitleText: string;
+  satisfactionGuarantee: ICard;
+  frontEndDevelopment: ICard;
+  backEndDevelopment: ICard;
+}
+
 export default interface Ii18nStrings {
   [key: string]: Object;
   navbar: INavbar;
   hero: IHero;
+  service: IService;
 }

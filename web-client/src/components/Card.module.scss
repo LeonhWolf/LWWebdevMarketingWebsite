@@ -1,0 +1,16 @@
+#top-icon-wrapper {
+  position: absolute;
+  top: 41px;
+  left: 0px;
+  $width-and-height: 45px;
+  width: $width-and-height;
+  height: $width-and-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+  transform: translate(-50%, -50%);
+}
+#top-icon {
+  width: 24px;
+}

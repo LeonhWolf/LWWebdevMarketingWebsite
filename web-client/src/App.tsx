@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./views/Hero";
+import Service from "./views/Service";
 import "./i18n";
 import "./App.scss";
 import "./scss/full.scss";
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <Service />
     </div>
   );
 }
