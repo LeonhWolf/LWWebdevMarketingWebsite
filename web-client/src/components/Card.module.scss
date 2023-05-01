@@ -1,16 +1,43 @@
+@import "../scss/base.scss";
+
+$icon-width-and-height: 45px;
+
 #top-icon-wrapper {
   position: absolute;
   top: 41px;
   left: 0px;
-  $width-and-height: 45px;
-  width: $width-and-height;
-  height: $width-and-height;
+  width: $icon-width-and-height;
+  height: $icon-width-and-height;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 1000px;
   transform: translate(-50%, -50%);
+
+  #top-icon {
+    width: 24px;
+  }
 }
-#top-icon {
-  width: 24px;
+
+.add-icon-margin-left {
+  margin-left: calc(#{$icon-width-and-height} / 2);
+}
+
+.bottom-icon-wrapper {
+  @extend .shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  $width-and-height: 37px;
+  width: $width-and-height;
+  height: $width-and-height;
+  border-radius: 500px;
+  border-width: 1px;
+  border-style: solid;
+
+  .icon-outline {
+    $width-and-height: 20px;
+    max-width: $width-and-height;
+    max-height: $width-and-height;
+  }
 }

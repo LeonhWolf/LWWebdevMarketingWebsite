@@ -5,10 +5,13 @@ export interface INavbar {
   about: string;
 }
 
-export interface IHero {
-  [key: string]: string | Object;
+interface IHeadings {
   smallTitle: string;
   bigTitle: string;
+}
+
+export interface IHero extends IHeadings {
+  [key: string]: string | Object;
   contactButtonText: string;
   bodyText: {
     [key: string]: string;
@@ -26,13 +29,19 @@ interface ICard {
   title: string;
   bodyText: string;
 }
-export interface IService {
+export interface IService extends IHeadings {
   [key: string]: string | Object;
-  smallTitleText: string;
-  bigTitleText: string;
   satisfactionGuarantee: ICard;
   frontEndDevelopment: ICard;
   backEndDevelopment: ICard;
+}
+
+export interface IProcess extends IHeadings {
+  [key: string]: string | Object;
+  frontEnd: ICard;
+  backEnd: ICard;
+  testing: ICard;
+  projectManagement: ICard;
 }
 
 export default interface Ii18nStrings {
@@ -40,4 +49,5 @@ export default interface Ii18nStrings {
   navbar: INavbar;
   hero: IHero;
   service: IService;
+  process: IProcess;
 }

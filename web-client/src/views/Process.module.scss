@@ -1,0 +1,33 @@
+@import "../scss/base.scss";
+
+#cards-wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 400px 400px;
+  row-gap: $cards-gap;
+  column-gap: $cards-gap;
+}
+
+#blue-stripe {
+  $vertical-offset: 50px;
+  position: absolute;
+  z-index: -1;
+  $darker-primary: darken($primary, 10%);
+  background: linear-gradient(45deg, $darker-primary, $primary);
+  width: 60vw;
+  height: calc(100% - #{$vertical-offset} * 2);
+  left: 0;
+  top: $vertical-offset;
+}
+
+@include media-breakpoint-down(lg) {
+  #cards-wrapper {
+    margin: 0 30px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  #blue-stripe {
+    width: 100vw;
+  }
+}

@@ -1,5 +1,5 @@
 import type Ii18nStrings from "./index.types";
-import type { INavbar, IHero, IService } from "./index.types";
+import type { INavbar, IHero, IService, IProcess } from "./index.types";
 
 const navbar: INavbar = {
   service: "service",
@@ -23,8 +23,8 @@ const hero: IHero = {
 };
 
 const service: IService = {
-  smallTitleText: "Service",
-  bigTitleText: "MERN Entwicklung",
+  smallTitle: "Service",
+  bigTitle: "MERN Entwicklung",
   satisfactionGuarantee: {
     title: "Zufriedenheitsgarantie",
     bodyText:
@@ -42,9 +42,35 @@ const service: IService = {
   },
 };
 
+const process: IProcess = {
+  smallTitle: "Prozess",
+  bigTitle: "Werkzeuge",
+  frontEnd: {
+    title: "Front-End",
+    bodyText:
+      "Neben HTML, CSS, TypeScript und React.js benutze ich andere Werkzeuge, um effizient und strukturiert zu entwickeln. Dazu gehören u.a. Bootstrap 5 und Sass.",
+  },
+  backEnd: {
+    title: "Back-End",
+    bodyText:
+      "Express.js ist das Back-End Framework meiner Wahl. MongoDB vereint die Flexibilität von NoSQL Datenbanken mit Schemas.",
+  },
+  testing: {
+    title: "Tests",
+    bodyText:
+      "Ein integraler Bestandteil meines Angebots ist TDD. Ich möchte Software so entwickeln, dass Bugs, wenn überhaupt, nur ein einziges Mal auftreten.",
+  },
+  projectManagement: {
+    title: "Projekt Management",
+    bodyText:
+      "Gut organisiert zu arbeiten ist wichtig für mich. Dies führt auch zu einer transparenteren Kommunikation.",
+  },
+};
+
 const i18nStrings: Ii18nStrings = {
   navbar,
   hero,
   service,
+  process,
 };
 export default i18nStrings;

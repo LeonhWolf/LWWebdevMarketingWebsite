@@ -52,7 +52,7 @@ function Hero() {
   }, []);
 
   return (
-    <div className="position-relative">
+    <section className="position-relative">
       <div>
         <div
           id={css["wrapper"]}
@@ -141,7 +141,7 @@ function Hero() {
       </a>
 
       <div id={css["orange-stripe"]} className="d-none d-lg-block"></div>
-    </div>
+    </section>
   );
 }
 

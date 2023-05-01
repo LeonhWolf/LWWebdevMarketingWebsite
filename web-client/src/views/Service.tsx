@@ -12,34 +12,34 @@ function Service() {
   const { t } = useTranslation();
 
   return (
-    <div style={{ backgroundColor: "#f1f1f1" }}>
+    <section style={{ backgroundColor: "#f1f1f1" }}>
       <div className="section-wrapper container">
         <HeadingsSection
-          smallTitleText={t("service.smallTitleText")}
-          bigTitleText={t("service.bigTitleText")}
+          smallTitleText={t("service.smallTitle")}
+          bigTitleText={t("service.bigTitle")}
         />
         <div id={css["cards-wrapper"]}>
           <Card
             title={t("service.satisfactionGuarantee.title")}
             bodyText={t("service.satisfactionGuarantee.bodyText")}
             titleAndIconBackgroundColor="#0088F1"
-            iconPath={rocketIcon}
+            topIconPath={rocketIcon}
           />
           <Card
             title={t("service.frontEndDevelopment.title")}
             bodyText={t("service.frontEndDevelopment.bodyText")}
             titleAndIconBackgroundColor="#006ec2"
-            iconPath={brushIcon}
+            topIconPath={brushIcon}
           />
           <Card
             title={t("service.backEndDevelopment.title")}
             bodyText={t("service.backEndDevelopment.bodyText")}
             titleAndIconBackgroundColor="#004f8d"
-            iconPath={serverIcon}
+            topIconPath={serverIcon}
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,13 +1,11 @@
 @import "../scss/base.scss";
 
-$row-and-column-gap: 35px;
-
 #cards-wrapper {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  row-gap: $row-and-column-gap;
-  column-gap: $row-and-column-gap;
+  row-gap: $cards-gap;
+  column-gap: $cards-gap;
 }
 
 @include media-breakpoint-down(lg) {
