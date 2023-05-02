@@ -1,0 +1,33 @@
+@import "../scss/base.scss";
+
+.carousel-slide {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1;
+  column-gap: $cards-gap;
+  padding: 20px;
+}
+
+.navigation-button {
+  padding: 6px 10px;
+  border-style: none;
+  background-color: transparent;
+  transition: background-color 150ms ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.carousel-indicator {
+  height: 2px;
+  width: 25px;
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  transition: background-color 150ms ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}

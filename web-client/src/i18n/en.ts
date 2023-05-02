@@ -1,5 +1,11 @@
 import type Ii18nStrings from "./index.types";
-import type { INavbar, IHero, IService, IProcess } from "./index.types";
+import type {
+  INavbar,
+  IHero,
+  IService,
+  IProcess,
+  IReferences,
+} from "./index.types";
 
 const navbar: INavbar = {
   service: "service",
@@ -67,10 +73,20 @@ const process: IProcess = {
   },
 };
 
+const references: IReferences = {
+  smallTitle: "References",
+  bigTitle: "Projects & Courses",
+  tabTitles: {
+    projects: "Projects",
+    courses: "Courses",
+  },
+};
+
 const i18nStrings: Ii18nStrings = {
   navbar,
   hero,
   service,
   process,
+  references,
 };
 export default i18nStrings;

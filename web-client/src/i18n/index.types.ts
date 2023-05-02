@@ -44,10 +44,20 @@ export interface IProcess extends IHeadings {
   projectManagement: ICard;
 }
 
+export interface IReferences extends IHeadings {
+  [key: string]: string | Object;
+  tabTitles: {
+    [key: string]: string;
+    projects: string;
+    courses: string;
+  };
+}
+
 export default interface Ii18nStrings {
   [key: string]: Object;
   navbar: INavbar;
   hero: IHero;
   service: IService;
   process: IProcess;
+  references: IReferences;
 }

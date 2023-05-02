@@ -7,7 +7,7 @@ import logo from "../assets/SVG/logo.svg";
 import mailIconSecondary from "../assets/SVG/inbox_secondary.svg";
 import mailIconWhite from "../assets/SVG/inbox_white.svg";
 import hamburgerIcon from "../assets/SVG/hamburger_menu.svg";
-import "./Navbar.scss";
+import css from "./Navbar.module.scss";
 
 interface INavLink {
   href: string;
@@ -40,17 +40,17 @@ const Navbar = () => {
 
   const mailIconElement = (
     <div
-      id="navbar-mail-icon-wrapper"
+      id={css["mail-icon-wrapper"]}
       onClick={() => offcanvasBootstrapElement.current?.hide()}
     >
       <img
-        id="navbar-mail-icon-secondary"
-        className="navbar-mail-icon"
+        id={css["mail-icon-secondary"]}
+        className={css["mail-icon"]}
         src={mailIconSecondary}
       />
       <img
-        id="navbar-mail-icon-white"
-        className="navbar-mail-icon"
+        id={css["mail-icon-white"]}
+        className={css["mail-icon"]}
         src={mailIconWhite}
       />
     </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        id="navbar"
+        id={css["navbar"]}
         className="d-flex container-fluid justify-content-between align-items-center"
       >
         <a
@@ -82,7 +82,7 @@ const Navbar = () => {
         </a>
 
         <button
-          id="navbar-hamburger-button"
+          id={css["hamburger-button"]}
           className="d-lg-none d-block"
           type="button"
           onClick={() => offcanvasBootstrapElement.current?.show()}
@@ -91,21 +91,32 @@ const Navbar = () => {
         </button>
 
         <ul
-          id="navbar-desktop-items"
+          id="desktop-items"
           className="d-lg-flex align-items-center mb-0 d-none"
         >
           {navLinks.map((navLink) => (
-            <li key={navLink.href} className="nav-item">
-              <a className="nav-link" href={`/#${navLink.href}`}>
+            <li
+              key={navLink.href}
+              className={`nav-item ${css["custom-nav-item"]}`}
+            >
+              <a
+                className={`nav-link ${css["custom-nav-link"]}`}
+                href={`/#${navLink.href}`}
+              >
                 {t(navLink.titleI18nKey)}
               </a>
             </li>
           ))}
-          <li className="nav-item">{mailIconElement}</li>
+          <li className={`nav-item ${css["custom-nav-item"]}`}>
+            {mailIconElement}
+          </li>
         </ul>
       </nav>
 
-      <div ref={offcanvasElement} className="offcanvas offcanvas-start">
+      <div
+        ref={offcanvasElement}
+        className={`offcanvas offcanvas-start ${css["custom-offcanvas"]}`}
+      >
         <div className="offcanvas-header">
           <button
             type="button"
@@ -115,13 +126,16 @@ const Navbar = () => {
           ></button>
         </div>
         <div
-          className="offcanvas-body d-flex flex-column"
+          className={`offcanvas-body d-flex flex-column ${css["custom-offcanvas-body"]}`}
           style={{ rowGap: "10px" }}
         >
           {navLinks.map((navLink) => (
-            <li key={navLink.href} className="offcanvas-nav-item">
+            <li
+              key={navLink.href}
+              className={`nav-item ${css["offcanvas-nav-item"]} ${css["custom-nav-item"]}`}
+            >
               <a
-                className="nav-link"
+                className={`nav-link ${css["custom-nav-link"]}`}
                 href={`/#${navLink.href}`}
                 onClick={() => offcanvasBootstrapElement.current?.hide()}
               >
