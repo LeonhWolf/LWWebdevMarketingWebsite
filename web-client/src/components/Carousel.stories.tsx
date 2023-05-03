@@ -84,3 +84,86 @@ export const FiveSlides: Story = {
     />
   ),
 };
+
+const largeCard = (
+  <div>
+    <Card
+      title="Teeeeeeeeeeeeeeeeeeeeeeeeest"
+      bodyText="Teeeeeeeeeeeeeeeeeeeeeeeeest"
+    />
+  </div>
+);
+const largeCardProps: IProps = {
+  elementsWidthPixels: 300,
+  elements: [
+    {
+      key: "0",
+      element: largeCard,
+    },
+    {
+      key: "1",
+      element: largeCard,
+    },
+    {
+      key: "2",
+      element: largeCard,
+    },
+    {
+      key: "3",
+      element: largeCard,
+    },
+    {
+      key: "4",
+      element: largeCard,
+    },
+  ],
+};
+export const WidthSmallMobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: "mobile1",
+    },
+  },
+  render: () => (
+    <Carousel
+      elements={largeCardProps.elements}
+      elementsWidthPixels={largeCardProps.elementsWidthPixels}
+    />
+  ),
+};
+
+const unequalHeightProps: IProps = {
+  elementsWidthPixels: 300,
+  elements: [
+    {
+      key: "0",
+      element: <Card title="Test" bodyText="Test" />,
+    },
+    {
+      key: "1",
+      element: (
+        <Card
+          title="Teeeeeeeeeeeeeeeeeeeeeeeeest"
+          bodyText="feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea"
+        />
+      ),
+    },
+    {
+      key: "2",
+      element: (
+        <Card
+          title="Teeeeeeeeeeeeeeeeeeeeeeeeest"
+          bodyText="aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed"
+        />
+      ),
+    },
+  ],
+};
+export const UnequalHeightElements: Story = {
+  render: () => (
+    <Carousel
+      elements={unequalHeightProps.elements}
+      elementsWidthPixels={unequalHeightProps.elementsWidthPixels}
+    />
+  ),
+};

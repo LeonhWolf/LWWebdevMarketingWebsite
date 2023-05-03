@@ -11,15 +11,18 @@ $icon-width-and-height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 9px;
   border-radius: 1000px;
   transform: translate(-50%, -50%);
 
   #top-icon {
-    width: 24px;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
-.add-icon-margin-left {
+.add-top-icon-margin {
   margin-left: calc(#{$icon-width-and-height} / 2);
 }
 
@@ -28,6 +31,7 @@ $icon-width-and-height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   $width-and-height: 37px;
   width: $width-and-height;
   height: $width-and-height;
@@ -36,8 +40,19 @@ $icon-width-and-height: 45px;
   border-style: solid;
 
   .icon-outline {
-    $width-and-height: 20px;
-    max-width: $width-and-height;
-    max-height: $width-and-height;
+    $max-width-and-height: 20px;
+    max-width: $max-width-and-height;
+    max-height: $max-width-and-height;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #top-icon-wrapper {
+    top: 0px;
+    left: 41px;
+  }
+  .add-top-icon-margin {
+    margin-left: 0;
+    margin-top: calc(#{$icon-width-and-height} / 2);
   }
 }

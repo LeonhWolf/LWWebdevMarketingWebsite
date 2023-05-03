@@ -5,6 +5,8 @@ import Card from "./Card";
 import rocketIcon from "../assets/SVG/rocket-takeoff.svg";
 import postmanLogo from "../assets/PNG/postman-logo.png";
 import typeScriptLogo from "../assets/PNG/typescript-logo.png";
+import udemyLogo from "../assets/SVG/Udemy_logo.svg";
+import mongoDbLogo from "../assets/PNG/mongoDB-logo.png";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -31,20 +33,68 @@ export const ColoredTitle: Story = {
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        titleAndIconBackgroundColor="red"
+        titleColor="red"
       />
     </div>
   ),
 };
 
-export const IconAtTop: Story = {
+export const TopIconSolid: Story = {
   render: () => (
     <div className="ms-42" style={{ width: "400px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        titleAndIconBackgroundColor="blue"
+        titleColor="green"
+        topIconColor="blue"
         topIconPath={rocketIcon}
+      />
+    </div>
+  ),
+};
+export const TopIconOutline: Story = {
+  render: () => (
+    <div className="ms-42" style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        titleColor="green"
+        topIconStyle="outline"
+        topIconColor="blue"
+        topIconPath={udemyLogo}
+      />
+    </div>
+  ),
+};
+export const TopIconTall: Story = {
+  render: () => (
+    <div className="ms-42" style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        titleColor="green"
+        topIconStyle="outline"
+        topIconColor="#10A94F"
+        topIconPath={mongoDbLogo}
+      />
+    </div>
+  ),
+};
+export const TopIconMobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: "iPhone12Pro",
+    },
+  },
+  render: () => (
+    <div className="ms-42" style={{ width: "300px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        titleColor="green"
+        topIconStyle="outline"
+        topIconColor="#10A94F"
+        topIconPath={mongoDbLogo}
       />
     </div>
   ),
@@ -139,6 +189,44 @@ export const bottomIconsStretchedHeight: Story = {
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
         bottomIcons={iconsWithPlaceholders}
       />
+    </div>
+  ),
+};
+export const bottomIconsWrap: Story = {
+  render: () => (
+    <div style={{ width: "300px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        bottomIcons={iconsWithPlaceholders}
+      />
+    </div>
+  ),
+};
+
+export const bottomElementInserted: Story = {
+  render: () => (
+    <div style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        bottomIcons={iconsWithPlaceholders}
+      >
+        <a href="#">some link</a>
+      </Card>
+    </div>
+  ),
+};
+
+export const BodyTextAndInsertedBottomElement: Story = {
+  render: () => (
+    <div style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+      >
+        <a href="#">some link</a>
+      </Card>
     </div>
   ),
 };

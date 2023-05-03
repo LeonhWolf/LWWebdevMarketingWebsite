@@ -22,19 +22,22 @@ function Service() {
           <Card
             title={t("service.satisfactionGuarantee.title")}
             bodyText={t("service.satisfactionGuarantee.bodyText")}
-            titleAndIconBackgroundColor="#0088F1"
+            titleColor="#0088F1"
+            topIconColor="#0088F1"
             topIconPath={rocketIcon}
           />
           <Card
             title={t("service.frontEndDevelopment.title")}
             bodyText={t("service.frontEndDevelopment.bodyText")}
-            titleAndIconBackgroundColor="#006ec2"
+            titleColor="#006ec2"
+            topIconColor="#006ec2"
             topIconPath={brushIcon}
           />
           <Card
             title={t("service.backEndDevelopment.title")}
             bodyText={t("service.backEndDevelopment.bodyText")}
-            titleAndIconBackgroundColor="#004f8d"
+            titleColor="#004f8d"
+            topIconColor="#004f8d"
             topIconPath={serverIcon}
           />
         </div>

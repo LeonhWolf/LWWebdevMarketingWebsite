@@ -95,7 +95,10 @@ function Carousel(props: IProps) {
       xl: getBreakpointValue("xl"),
       xxl: getBreakpointValue("xxl"),
     };
-    const pageWidth = document.body.offsetWidth;
+    const pageWidth =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
 
     if (pageWidth < breakpointValues.sm) return "xs";
     if (pageWidth >= breakpointValues.sm && pageWidth < breakpointValues.md)
@@ -120,6 +123,8 @@ function Carousel(props: IProps) {
     if (currentBreakpoint === "xs") {
       elementsPerSlide = 1;
     } else if (currentBreakpoint === "sm") {
+      elementsPerSlide = 1;
+    } else if (currentBreakpoint === "md") {
       elementsPerSlide = 2;
     }
 
@@ -168,7 +173,12 @@ function Carousel(props: IProps) {
           {groupedElements.map((elementGroup, index) => (
             <div key={index} className={`${css["slide"]}`}>
               {elementGroup.map((element, index) => (
-                <div key={index}>{element.element}</div>
+                <div
+                  key={index}
+                  style={{ minWidth: "0", height: "fit-content" }}
+                >
+                  {element.element}
+                </div>
               ))}
             </div>
           ))}

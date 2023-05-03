@@ -44,12 +44,27 @@ export interface IProcess extends IHeadings {
   projectManagement: ICard;
 }
 
+interface ICourseCard {
+  [key: string]: string;
+  body: string;
+}
 export interface IReferences extends IHeadings {
   [key: string]: string | Object;
   tabTitles: {
     [key: string]: string;
     projects: string;
     courses: string;
+  };
+  courses: {
+    [key: string]: string | Object;
+    seeCertificateButton: string;
+    javascriptAdvancedConcepts: ICourseCard;
+    dataStructuresAndAlgorithms: ICourseCard;
+    mongoDbBasics: ICourseCard;
+    mongoDbAggregationFramework: ICourseCard;
+    mongoDbDataModeling: ICourseCard;
+    owaspTopTen: ICourseCard;
+    cleanCode: ICourseCard;
   };
 }
 

@@ -11,9 +11,12 @@ interface IBottomIcon {
 export interface IProps {
   title: string;
   bodyText: string;
-  titleAndIconBackgroundColor?: string;
+  titleColor?: string;
+  topIconStyle?: "solid" | "outline";
+  topIconColor?: string;
   topIconPath?: string;
   bottomIcons?: IBottomIcon[];
+  children?: React.ReactElement;
 }
 
 function IconOutline(props: IBottomIcon) {
@@ -48,13 +51,23 @@ function Card(props: IProps) {
   return (
     <div
       className={`card shadow position-relative h-100 ${
-        typeof props.topIconPath === "string" && css["add-icon-margin-left"]
+        typeof props.topIconPath === "string" && css["add-top-icon-margin"]
       }`}
     >
       {typeof props.topIconPath === "string" && (
         <div
           id={css["top-icon-wrapper"]}
-          style={{ backgroundColor: props.titleAndIconBackgroundColor }}
+          className={props.topIconStyle === "outline" ? "shadow" : ""}
+          style={{
+            backgroundColor:
+              props.topIconStyle === "solid" || props.topIconStyle === undefined
+                ? props.topIconColor
+                : "white",
+            border:
+              props.topIconStyle === "outline"
+                ? `solid 1px ${props.topIconColor}`
+                : undefined,
+          }}
         >
           <img id={css["top-icon"]} src={props.topIconPath} alt="" />
         </div>
@@ -64,25 +77,36 @@ function Card(props: IProps) {
           className="card-title"
           style={{
             fontWeight: "700",
-            color: props.titleAndIconBackgroundColor,
+            color: props.titleColor,
           }}
         >
           {props.title}
         </h5>
-        <p className="card-text">{props.bodyText}</p>
+        <div
+          id="card-body-wrapper"
+          className="d-flex flex-column justify-content-between h-100"
+          style={{ rowGap: "15px" }}
+        >
+          <p className="card-text mb-0">{props.bodyText}</p>
 
-        {props.bottomIcons !== undefined && props.bottomIcons.length > 0 && (
-          <div className="d-flex mt-auto" style={{ columnGap: "12px" }}>
-            {props.bottomIcons.map((bottomIcon, index) => (
-              <IconOutline
-                key={index}
-                iconPath={bottomIcon.iconPath}
-                borderColor={bottomIcon.borderColor}
-                tooltipText={bottomIcon.tooltipText}
-              />
-            ))}
-          </div>
-        )}
+          {props.bottomIcons !== undefined && props.bottomIcons.length > 0 && (
+            <div
+              className="d-flex mt-auto"
+              style={{ columnGap: "12px", rowGap: "8px", flexWrap: "wrap" }}
+            >
+              {props.bottomIcons.map((bottomIcon, index) => (
+                <IconOutline
+                  key={index}
+                  iconPath={bottomIcon.iconPath}
+                  borderColor={bottomIcon.borderColor}
+                  tooltipText={bottomIcon.tooltipText}
+                />
+              ))}
+            </div>
+          )}
+
+          {props.children !== undefined && <div>{props.children}</div>}
+        </div>
       </div>
     </div>
   );

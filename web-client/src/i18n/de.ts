@@ -80,6 +80,30 @@ const references: IReferences = {
     projects: "Projekte",
     courses: "Kurse",
   },
+  courses: {
+    seeCertificateButton: "Zertifikat ansehen",
+    javascriptAdvancedConcepts: {
+      body: "JavaScript Engine, Event Loop, Callback & Job Queue, OOP & FP, Error Handling.",
+    },
+    dataStructuresAndAlgorithms: {
+      body: "Big O Notation, Arrays, Hash Tables, Linked Lists, Stacks & Queues, Trees, Graphs, Recursion, Sorting, Searching, Dynamic Programming",
+    },
+    mongoDbBasics: {
+      body: "CRUD Operationen, Einführung Aggregation Pipeline.",
+    },
+    mongoDbAggregationFramework: {
+      body: "Kennenlernen vieler verschiedener Pipeline Stages, praktische Anwendung von Kombinationen der Pipeline Stages in Übungen, Aggregation Performance.",
+    },
+    mongoDbDataModeling: {
+      body: "Entity Relationships (one-to-one, one-to-many, etc.), Simplicity vs Performance, Vorstellung vieler verschiedener Patterns, um Schemas zielorientiert zu gestalten.",
+    },
+    owaspTopTen: {
+      body: "Eine Einführung in die OWASP Top 10.",
+    },
+    cleanCode: {
+      body: "Clean Code bei der Namensgebung, beim Formatieren, in Funktionen, in Kontrollstrukturen, bei Objekten und die SOLID Prinzipien.",
+    },
+  },
 };
 
 const i18nStrings: Ii18nStrings = {
