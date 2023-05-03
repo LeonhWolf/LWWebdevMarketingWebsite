@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import HeadingsSection from "../components/HeadingsSection";
@@ -6,8 +6,13 @@ import Carousel from "../components/Carousel";
 import type { IProps as ICarousel } from "../components/Carousel";
 import Card from "../components/Card";
 import { IProps as ICard } from "../components/Card";
+import { technologyIcons } from "../utils/uiHelpers";
+import type { IProjectTypes } from "../i18n/index.types";
+
 import udemyLogo from "../assets/SVG/Udemy_logo.svg";
-import mongoDbLogo from "../assets/PNG/mongoDB-logo.png";
+import mongoDbLogo from "../assets/PNG/mongo-db-logo.png";
+import senacorLogo from "../assets/PNG/senacor-logo.png";
+import statisticsStockPhoto from "../assets/PNG/statistics-stock.png";
 
 interface ICertificateCompany {
   iconPath: string;
@@ -17,12 +22,12 @@ interface ICertificateCompanyStyles {
   udemy: ICertificateCompany;
   mongoDbUniversity: ICertificateCompany;
 }
-interface ICertificateCardProps extends Pick<ICard, "title" | "bodyText"> {
+interface ICardCertificateProps extends Pick<ICard, "title" | "bodyText"> {
   link: string;
   certificateCompany: keyof ICertificateCompanyStyles;
 }
 
-function CertificateCard(props: ICertificateCardProps) {
+function CardCertificate(props: ICardCertificateProps) {
   const { t } = useTranslation();
 
   const certificateCompanyStyles: ICertificateCompanyStyles = {
@@ -53,25 +58,232 @@ function CertificateCard(props: ICertificateCardProps) {
   );
 }
 
+interface ISubtitleProjectCard {
+  projectType: keyof IProjectTypes;
+  startDate: Date | "WIP";
+  endDate?: Date;
+}
+function SubtitleProjectCard(props: ISubtitleProjectCard) {
+  const { t } = useTranslation();
+  const [monthsShort] = useState<string[]>([
+    t("miscellaneous.monthsShort.january"),
+    t("miscellaneous.monthsShort.february"),
+    t("miscellaneous.monthsShort.march"),
+    t("miscellaneous.monthsShort.april"),
+    t("miscellaneous.monthsShort.may"),
+    t("miscellaneous.monthsShort.june"),
+    t("miscellaneous.monthsShort.july"),
+    t("miscellaneous.monthsShort.august"),
+    t("miscellaneous.monthsShort.september"),
+    t("miscellaneous.monthsShort.october"),
+    t("miscellaneous.monthsShort.november"),
+    t("miscellaneous.monthsShort.december"),
+  ]);
+
+  const getYearAndMonth = (date: Date): string => {
+    const month = monthsShort[date.getMonth()];
+    const dateString = `${month} ${date.getFullYear()} `;
+    return dateString;
+  };
+
+  return (
+    <div
+      className="d-flex justify-content-between flex-wrap text-muted"
+      style={{ fontWeight: "500" }}
+    >
+      <div className="me-4">
+        {t(`references.projects.projectTypes.${props.projectType}`)}
+      </div>
+      {props.startDate === "WIP" && <div>WIP</div>}
+      {props.startDate !== "WIP" && (
+        <div>
+          <div>
+            {getYearAndMonth(props.startDate)}
+            {props.endDate !== undefined
+              ? " - " + getYearAndMonth(props.endDate)
+              : ""}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+interface ICardProjectProps
+  extends Pick<ICard, "title" | "bodyText">,
+    ISubtitleProjectCard {
+  bottomIcons: Required<ICard["bottomIcons"]>;
+  // headerImagePath: Required<ICard["headerImagePath"]>;
+  headerImagePath?: ICard["headerImagePath"];
+  // children?: React.ReactElement;
+  externalLink?: {
+    text: string;
+    link: string;
+  };
+}
+function CardProject(props: ICardProjectProps) {
+  return (
+    <Card
+      title={props.title}
+      subtitleElement={
+        <SubtitleProjectCard
+          projectType={props.projectType}
+          startDate={props.startDate}
+          endDate={props.endDate}
+        />
+      }
+      bodyText={props.bodyText}
+      bottomIcons={props.bottomIcons}
+    >
+      {
+        <a href={props.externalLink?.link} target="_blank">
+          {props.externalLink?.text}
+        </a>
+      }
+    </Card>
+  );
+}
+
 function References() {
   const { t } = useTranslation();
 
   const [projectCards] = useState<ICarousel["elements"]>([
     {
-      key: "card1",
-      element: <Card title="Card1" bodyText="BodyText1" />,
+      key: "marketingWebsite",
+      element: (
+        <CardProject
+          title={t("references.projects.marketingWebsite.title")}
+          projectType="portfolio"
+          startDate={new Date("2023-05-01")}
+          bodyText={t("references.projects.marketingWebsite.bodyText")}
+          bottomIcons={[
+            technologyIcons.react,
+            technologyIcons.typescript,
+            technologyIcons.reactRouter,
+            technologyIcons.i18next,
+            technologyIcons.bootstrap,
+            technologyIcons.sass,
+          ]}
+          externalLink={{
+            link: "https://github.com/LeonhWolf/LWWebdevMarketingWebsite",
+            text: t("references.projects.seeCodeButton"),
+          }}
+        />
+      ),
     },
     {
-      key: "card2",
-      element: <Card title="Card2" bodyText="BodyText2" />,
+      key: "songwritingTool",
+      element: (
+        <CardProject
+          title={t("references.projects.songwritingTool.title")}
+          projectType="portfolio"
+          startDate="WIP"
+          bodyText={t("references.projects.songwritingTool.bodyText")}
+          bottomIcons={[
+            technologyIcons.react,
+            technologyIcons.typescript,
+            technologyIcons.reactRouter,
+            technologyIcons.redux,
+            technologyIcons.i18next,
+            technologyIcons.bootstrap,
+            technologyIcons.jest,
+            technologyIcons.reactTestingLibrary,
+            technologyIcons.storybook,
+            technologyIcons.express,
+            technologyIcons.mongoDb,
+            technologyIcons.swagger,
+          ]}
+          externalLink={{
+            link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
+            text: t("references.projects.seeCodeButton"),
+          }}
+        />
+      ),
     },
     {
-      key: "card3",
-      element: <Card title="Card3" bodyText="BodyText3" />,
+      key: "senacor",
+      element: (
+        <CardProject
+          title={t("references.projects.senacor.title")}
+          projectType="freelancing"
+          startDate={new Date("2023-03-01")}
+          bodyText={t("references.projects.senacor.bodyText")}
+          headerImagePath={senacorLogo}
+          bottomIcons={[technologyIcons.wordpress, technologyIcons.php]}
+        />
+      ),
     },
     {
-      key: "card4",
-      element: <Card title="Card4" bodyText="BodyText4" />,
+      key: "ndaProject",
+      element: (
+        <CardProject
+          title={t("references.projects.ndaProject.title")}
+          projectType="freelancing"
+          startDate={new Date("2023-02-01")}
+          endDate={new Date("2023-03-01")}
+          bodyText={t("references.projects.ndaProject.bodyText")}
+          bottomIcons={[
+            technologyIcons.vueJs,
+            technologyIcons.typescript,
+            technologyIcons.vueRouter,
+            technologyIcons.pinia,
+            technologyIcons.bootstrap,
+            technologyIcons.sass,
+          ]}
+        />
+      ),
+    },
+    {
+      key: "spacific",
+      element: (
+        <CardProject
+          title={t("references.projects.spacific.title")}
+          projectType="employment"
+          startDate={new Date("2021-12-01")}
+          endDate={new Date("2022-06-01")}
+          bodyText={t("references.projects.spacific.bodyText")}
+          bottomIcons={[
+            technologyIcons.angular,
+            technologyIcons.typescript,
+            technologyIcons.bootstrap,
+            technologyIcons.sass,
+            technologyIcons.dotnet,
+          ]}
+        />
+      ),
+    },
+    {
+      key: "objectWritingTool",
+      element: (
+        <CardProject
+          title={t("references.projects.objectWritingTool.title")}
+          projectType="portfolio"
+          startDate={new Date("2021-11-01")}
+          bodyText={t("references.projects.objectWritingTool.bodyText")}
+          bottomIcons={[
+            technologyIcons.vueJs,
+            technologyIcons.express,
+            technologyIcons.jest,
+            technologyIcons.mongoDb,
+          ]}
+          externalLink={{
+            link: "https://bitbucket.org/LeonhardWolf/objectwritingtool/src/master/",
+            text: t("references.projects.seeCodeButton"),
+          }}
+        />
+      ),
+    },
+    {
+      key: "tutoring",
+      element: (
+        <CardProject
+          title={t("references.projects.tutoring.title")}
+          projectType="education"
+          startDate={new Date("2021-06-01")}
+          bodyText={t("references.projects.tutoring.bodyText")}
+          bottomIcons={[technologyIcons.python, technologyIcons.pyQt]}
+        />
+      ),
     },
   ]);
 
@@ -79,7 +291,7 @@ function References() {
     {
       key: "JavaScript: The Advanced Concepts",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="JavaScript: The Advanced Concepts"
           bodyText={t("references.courses.javascriptAdvancedConcepts.body")}
           certificateCompany="udemy"
@@ -90,7 +302,7 @@ function References() {
     {
       key: "Master the Coding Interview: Data Structures + Algorithms",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="Master the Coding Interview: Data Structures + Algorithms"
           bodyText={t("references.courses.dataStructuresAndAlgorithms.body")}
           certificateCompany="udemy"
@@ -101,7 +313,7 @@ function References() {
     {
       key: "Clean Code",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="Clean Code"
           bodyText={t("references.courses.cleanCode.body")}
           certificateCompany="udemy"
@@ -112,7 +324,7 @@ function References() {
     {
       key: "OWASP top 10: Web Application Security for Beginners",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="OWASP top 10: Web Application Security for Beginners"
           bodyText={t("references.courses.owaspTopTen.body")}
           certificateCompany="udemy"
@@ -123,7 +335,7 @@ function References() {
     {
       key: "MongoDB Basics",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="MongoDB Basics"
           bodyText={t("references.courses.mongoDbBasics.body")}
           certificateCompany="mongoDbUniversity"
@@ -134,7 +346,7 @@ function References() {
     {
       key: "The MongoDB Aggregation Framework",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="The MongoDB Aggregation Framework"
           bodyText={t("references.courses.mongoDbAggregationFramework.body")}
           certificateCompany="mongoDbUniversity"
@@ -145,7 +357,7 @@ function References() {
     {
       key: "Data Modeling",
       element: (
-        <CertificateCard
+        <CardCertificate
           title="Data Modeling"
           bodyText={t("references.courses.mongoDbDataModeling.body")}
           certificateCompany="mongoDbUniversity"

@@ -44,6 +44,12 @@ export interface IProcess extends IHeadings {
   projectManagement: ICard;
 }
 
+export interface IProjectTypes {
+  freelancing: string;
+  employment: string;
+  portfolio: string;
+  education: string;
+}
 interface ICourseCard {
   [key: string]: string;
   body: string;
@@ -54,6 +60,18 @@ export interface IReferences extends IHeadings {
     [key: string]: string;
     projects: string;
     courses: string;
+  };
+  projects: {
+    [key: string]: Object;
+    seeCodeButton: string;
+    projectTypes: IProjectTypes;
+    marketingWebsite: ICard;
+    songwritingTool: ICard;
+    senacor: ICard;
+    ndaProject: ICard;
+    spacific: ICard;
+    objectWritingTool: ICard;
+    tutoring: ICard;
   };
   courses: {
     [key: string]: string | Object;
@@ -68,6 +86,24 @@ export interface IReferences extends IHeadings {
   };
 }
 
+export interface IMonths {
+  january: string;
+  february: string;
+  march: string;
+  april: string;
+  may: string;
+  june: string;
+  july: string;
+  august: string;
+  september: string;
+  october: string;
+  november: string;
+  december: string;
+}
+
+export interface IMiscellaneous {
+  monthsShort: IMonths;
+}
 export default interface Ii18nStrings {
   [key: string]: Object;
   navbar: INavbar;
@@ -75,4 +111,5 @@ export default interface Ii18nStrings {
   service: IService;
   process: IProcess;
   references: IReferences;
+  miscellaneous: IMiscellaneous;
 }

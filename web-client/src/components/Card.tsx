@@ -3,7 +3,7 @@ import { Tooltip } from "bootstrap";
 
 import css from "./Card.module.scss";
 
-interface IBottomIcon {
+export interface IBottomIcon {
   iconPath: string;
   borderColor: string;
   tooltipText?: string;
@@ -17,6 +17,8 @@ export interface IProps {
   topIconPath?: string;
   bottomIcons?: IBottomIcon[];
   children?: React.ReactElement;
+  headerImagePath?: string;
+  subtitleElement?: React.ReactElement;
 }
 
 function IconOutline(props: IBottomIcon) {
@@ -73,6 +75,13 @@ function Card(props: IProps) {
         </div>
       )}
       <div className="card-body d-flex flex-column">
+        {props.headerImagePath !== undefined && (
+          <img
+            className="mb-2"
+            src={props.headerImagePath}
+            style={{ maxWidth: "100%", maxHeight: "100%", width: "100%" }}
+          ></img>
+        )}
         <h5
           className="card-title"
           style={{
@@ -82,6 +91,11 @@ function Card(props: IProps) {
         >
           {props.title}
         </h5>
+
+        {props.subtitleElement !== undefined && (
+          <div className="mb-2">{props.subtitleElement}</div>
+        )}
+
         <div
           id="card-body-wrapper"
           className="d-flex flex-column justify-content-between h-100"

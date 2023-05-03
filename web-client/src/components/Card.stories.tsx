@@ -6,7 +6,8 @@ import rocketIcon from "../assets/SVG/rocket-takeoff.svg";
 import postmanLogo from "../assets/PNG/postman-logo.png";
 import typeScriptLogo from "../assets/PNG/typescript-logo.png";
 import udemyLogo from "../assets/SVG/Udemy_logo.svg";
-import mongoDbLogo from "../assets/PNG/mongoDB-logo.png";
+import mongoDbLogo from "../assets/PNG/mongo-db-logo.png";
+import senacorLogo from "../assets/PNG/senacor-logo.png";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -34,6 +35,32 @@ export const ColoredTitle: Story = {
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
         titleColor="red"
+      />
+    </div>
+  ),
+};
+
+export const SubtitleElement: Story = {
+  render: () => (
+    <div style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        subtitleElement={
+          <div style={{ border: "solid 1px blue" }}>some subtitle text</div>
+        }
+      />
+    </div>
+  ),
+};
+
+export const HeaderImage: Story = {
+  render: () => (
+    <div style={{ width: "300px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        headerImagePath={senacorLogo}
       />
     </div>
   ),

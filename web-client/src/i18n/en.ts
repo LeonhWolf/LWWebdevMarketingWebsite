@@ -5,6 +5,8 @@ import type {
   IService,
   IProcess,
   IReferences,
+  IMonths,
+  IMiscellaneous,
 } from "./index.types";
 
 const navbar: INavbar = {
@@ -80,6 +82,50 @@ const references: IReferences = {
     projects: "Projects",
     courses: "Courses",
   },
+  projects: {
+    seeCodeButton: "See code",
+    projectTypes: {
+      freelancing: "Freelancing",
+      employment: "Employment",
+      portfolio: "Portfolio",
+      education: "Education",
+    },
+    marketingWebsite: {
+      title: "Marketing Website",
+      bodyText:
+        "This very marketing website. It includes i18n, custom front-end components like this carousel and animations.",
+    },
+    songwritingTool: {
+      title: "Songwriting Tool",
+      bodyText:
+        "Tool to assist in multiple chores for songwriting training. The app includes authentication.",
+    },
+    senacor: {
+      title: "Double Opt-In",
+      bodyText:
+        "Implementing a double-opt in and connecting the CRM Pipedrive.",
+    },
+    ndaProject: {
+      title: "NDA Vue.js Project",
+      bodyText:
+        "Development of the whole Vue.js front-end, used in WordPress pages. Connecting to a complex REST API, UI Responsiveness, loading placeholders.",
+    },
+    spacific: {
+      title: "Software Engineer",
+      bodyText:
+        "Redesign of the application, adjustments/extensions to existing features, implementing multiple guided tours and i18n in .NET Razor.",
+    },
+    objectWritingTool: {
+      title: "Object Writing Tool",
+      bodyText:
+        "Tool to assist with a songwriting exercise called Object Writing.",
+    },
+    tutoring: {
+      title: "Tutoring in Python",
+      bodyText:
+        "Tutoring for an undergraduate, development of an app to display Covid statistics.",
+    },
+  },
   courses: {
     seeCertificateButton: "See certificate",
     javascriptAdvancedConcepts: {
@@ -106,11 +152,31 @@ const references: IReferences = {
   },
 };
 
+const monthsShort: IMonths = {
+  january: "Jan",
+  february: "Feb",
+  march: "Mar",
+  april: "Apr",
+  may: "May",
+  june: "Jun",
+  july: "Jul",
+  august: "Aug",
+  september: "Sep",
+  october: "Oct",
+  november: "Nov",
+  december: "Dec",
+};
+
+const miscellaneous: IMiscellaneous = {
+  monthsShort,
+};
+
 const i18nStrings: Ii18nStrings = {
   navbar,
   hero,
   service,
   process,
   references,
+  miscellaneous,
 };
 export default i18nStrings;

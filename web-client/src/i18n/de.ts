@@ -5,6 +5,8 @@ import type {
   IService,
   IProcess,
   IReferences,
+  IMonths,
+  IMiscellaneous,
 } from "./index.types";
 
 const navbar: INavbar = {
@@ -80,13 +82,56 @@ const references: IReferences = {
     projects: "Projekte",
     courses: "Kurse",
   },
+  projects: {
+    seeCodeButton: "Code ansehen",
+    projectTypes: {
+      freelancing: "Freelancing",
+      employment: "Festanstellung",
+      portfolio: "Portfolio",
+      education: "Unterricht",
+    },
+    marketingWebsite: {
+      title: "Marketing Website",
+      bodyText:
+        "Diese Marketing Webseite. Features sind i18n, selbst erstellte Components wie dieses Carousel und Animationen.",
+    },
+    songwritingTool: {
+      title: "Songwriting Tool",
+      bodyText:
+        "Tool zur Unterstützung bei repetitiven Aufgaben beim Songwriting Training, inkl. Authentifizierung.",
+    },
+    senacor: {
+      title: "Double Opt-In",
+      bodyText: "Implementierung Double Opt-In, Anbindung an Pipedrive CRM.",
+    },
+    ndaProject: {
+      title: "NDA Vue.js Projekt",
+      bodyText:
+        "Komplette Entwicklung des Vue.js Front-Ends zur Benutzung in WordPress, Anbindung an komplexe REST API, UI Responsiveness, Loading Placeholders.",
+    },
+    spacific: {
+      title: "Software Entwickler",
+      bodyText:
+        "Redesign der Applikation, Anpassungen/Erweiterung bestehender Features, Umsetzung mehrerer Guided Tours und i18n in .NET Razor.",
+    },
+    objectWritingTool: {
+      title: "Object Writing Tool",
+      bodyText:
+        "Tool zur Unterstützung bei einer Songwriting Übung namens Object Writing.",
+    },
+    tutoring: {
+      title: "Nachhilfe in Python",
+      bodyText:
+        "Nachhilfe für eine Kommilitonin, Entwicklung einer App für die Darstellung von Corona-Statistiken.",
+    },
+  },
   courses: {
     seeCertificateButton: "Zertifikat ansehen",
     javascriptAdvancedConcepts: {
       body: "JavaScript Engine, Event Loop, Callback & Job Queue, OOP & FP, Error Handling.",
     },
     dataStructuresAndAlgorithms: {
-      body: "Big O Notation, Arrays, Hash Tables, Linked Lists, Stacks & Queues, Trees, Graphs, Recursion, Sorting, Searching, Dynamic Programming",
+      body: "Big O Notation, Arrays, Hash Tables, Linked Lists, Stacks & Queues, Trees, Graphs, Recursion, Sorting, Searching, Dynamic Programming.",
     },
     mongoDbBasics: {
       body: "CRUD Operationen, Einführung Aggregation Pipeline.",
@@ -106,11 +151,31 @@ const references: IReferences = {
   },
 };
 
+const monthsShort: IMonths = {
+  january: "Jan",
+  february: "Feb",
+  march: "Mär",
+  april: "Apr",
+  may: "Mai",
+  june: "Jun",
+  july: "Jul",
+  august: "Aug",
+  september: "Sep",
+  october: "Okt",
+  november: "Nov",
+  december: "Dez",
+};
+
+const miscellaneous: IMiscellaneous = {
+  monthsShort,
+};
+
 const i18nStrings: Ii18nStrings = {
   navbar,
   hero,
   service,
   process,
   references,
+  miscellaneous,
 };
 export default i18nStrings;
