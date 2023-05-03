@@ -1,10 +1,16 @@
 @import "../scss/base.scss";
 
-.carousel-slide {
+#all-slides {
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1;
+  flex-shrink: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   column-gap: $cards-gap;
+  width: 100%;
   padding: 20px;
 }
 
@@ -28,6 +34,21 @@
   transition: background-color 150ms ease-in-out;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .slide {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@include media-breakpoint-up(md) {
+  .slide {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

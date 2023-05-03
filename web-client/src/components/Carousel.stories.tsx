@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import i18next from "i18next";
 
 import Carousel from "./Carousel";
 import type { IProps } from "./Carousel";
@@ -37,69 +36,51 @@ const exampleProps: IProps = {
       key: "3",
       element: exampleCard,
     },
+    {
+      key: "4",
+      element: exampleCard,
+    },
   ],
 };
 
-export const DesktopDE: Story = {
-  play: () => {
-    i18next.changeLanguage("de");
-  },
+export const OneSlide: Story = {
   render: () => (
     <Carousel
-      elements={exampleProps.elements}
+      elements={exampleProps.elements.slice(0, 1)}
       elementsWidthPixels={exampleProps.elementsWidthPixels}
     />
   ),
 };
-// export const DesktopEN: Story = {
-//   play: () => {
-//     i18next.changeLanguage("en");
-//   },
-//   render: () => <Carousel elements={exampleProps.elements} />,
-// };
 
-// export const TabletDE: Story = {
-//   parameters: {
-//     viewport: {
-//       defaultViewport: "iPadMini",
-//     },
-//   },
-//   play: () => {
-//     i18next.changeLanguage("de");
-//   },
-//   render: () => <Carousel elements={exampleProps.elements} />,
-// };
-// export const TabletEN: Story = {
-//   parameters: {
-//     viewport: {
-//       defaultViewport: "iPadMini",
-//     },
-//   },
-//   play: () => {
-//     i18next.changeLanguage("en");
-//   },
-//   render: () => <Carousel elements={exampleProps.elements} />,
-// };
-
-// export const MobileDE: Story = {
-//   parameters: {
-//     viewport: {
-//       defaultViewport: "iPhone12Pro",
-//     },
-//   },
-//   play: () => {
-//     i18next.changeLanguage("de");
-//   },
-//   render: () => <Carousel elements={exampleProps.elements} />,
-// };
-// export const MobileEN: Story = {
-//   parameters: {
-//     viewport: {
-//       defaultViewport: "iPhone12Pro",
-//     },
-//   },
-//   play: () => {
-//     i18next.changeLanguage("en");
-//   },
-//   render: () => <Carousel elements={exampleProps.elements} />,
-// };
+export const TwoSlides: Story = {
+  render: () => (
+    <Carousel
+      elements={exampleProps.elements.slice(0, 2)}
+      elementsWidthPixels={exampleProps.elementsWidthPixels}
+    />
+  ),
+};
+export const ThreeSlides: Story = {
+  render: () => (
+    <Carousel
+      elements={exampleProps.elements.slice(0, 3)}
+      elementsWidthPixels={exampleProps.elementsWidthPixels}
+    />
+  ),
+};
+export const FourSlides: Story = {
+  render: () => (
+    <Carousel
+      elements={exampleProps.elements.slice(0, 4)}
+      elementsWidthPixels={exampleProps.elementsWidthPixels}
+    />
+  ),
+};
+export const FiveSlides: Story = {
+  render: () => (
+    <Carousel
+      elements={exampleProps.elements.slice(0, 5)}
+      elementsWidthPixels={exampleProps.elementsWidthPixels}
+    />
+  ),
+};
