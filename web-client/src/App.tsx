@@ -3,6 +3,7 @@ import Hero from "./views/Hero";
 import Service from "./views/Service";
 import Process from "./views/Process";
 import References from "./views/References";
+import About from "./views/About";
 import "./i18n";
 import "./App.scss";
 import "./scss/full.scss";
@@ -15,6 +16,7 @@ function App() {
       <Service />
       <Process />
       <References />
+      <About />
     </div>
   );
 }

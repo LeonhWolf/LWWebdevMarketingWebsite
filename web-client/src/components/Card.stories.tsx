@@ -8,6 +8,7 @@ import typeScriptLogo from "../assets/PNG/typescript-logo.png";
 import udemyLogo from "../assets/SVG/Udemy_logo.svg";
 import mongoDbLogo from "../assets/PNG/mongo-db-logo.png";
 import senacorLogo from "../assets/PNG/senacor-logo.png";
+import leonhardWolfPortraitFrontal from "../assets/PNG/leonhardWolf-portrait-frontal.png";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -68,7 +69,7 @@ export const HeaderImage: Story = {
 
 export const TopIconSolid: Story = {
   render: () => (
-    <div className="ms-42" style={{ width: "400px" }}>
+    <div style={{ width: "400px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
@@ -81,7 +82,7 @@ export const TopIconSolid: Story = {
 };
 export const TopIconOutline: Story = {
   render: () => (
-    <div className="ms-42" style={{ width: "400px" }}>
+    <div style={{ width: "400px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
@@ -95,7 +96,7 @@ export const TopIconOutline: Story = {
 };
 export const TopIconTall: Story = {
   render: () => (
-    <div className="ms-42" style={{ width: "400px" }}>
+    <div style={{ width: "400px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
@@ -114,7 +115,7 @@ export const TopIconMobile: Story = {
     },
   },
   render: () => (
-    <div className="ms-42" style={{ width: "300px" }}>
+    <div style={{ width: "300px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
@@ -122,6 +123,34 @@ export const TopIconMobile: Story = {
         topIconStyle="outline"
         topIconColor="#10A94F"
         topIconPath={mongoDbLogo}
+      />
+    </div>
+  ),
+};
+
+export const LeftImage: Story = {
+  render: () => (
+    <div style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        leftImagePath={leonhardWolfPortraitFrontal}
+      />
+    </div>
+  ),
+};
+export const LeftImageMobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: "iPhone12Pro",
+    },
+  },
+  render: () => (
+    <div style={{ width: "400px" }}>
+      <Card
+        title="Test Title"
+        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
+        leftImagePath={leonhardWolfPortraitFrontal}
       />
     </div>
   ),

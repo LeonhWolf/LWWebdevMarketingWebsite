@@ -18,6 +18,7 @@ export interface IProps {
   bottomIcons?: IBottomIcon[];
   children?: React.ReactElement;
   headerImagePath?: string;
+  leftImagePath?: string;
   subtitleElement?: React.ReactElement;
 }
 
@@ -54,7 +55,7 @@ function Card(props: IProps) {
     <div
       className={`card shadow position-relative h-100 ${
         typeof props.topIconPath === "string" && css["add-top-icon-margin"]
-      }`}
+      } ${props.leftImagePath !== undefined && css["add-left-image-margin"]}`}
     >
       {typeof props.topIconPath === "string" && (
         <div
@@ -74,7 +75,19 @@ function Card(props: IProps) {
           <img id={css["top-icon"]} src={props.topIconPath} alt="" />
         </div>
       )}
-      <div className="card-body d-flex flex-column">
+
+      {props.leftImagePath !== undefined && (
+        <div id={css["left-image-wrapper"]}>
+          <img id={css["left-image"]} src={props.leftImagePath} alt="" />
+        </div>
+      )}
+
+      <div
+        className={`card-body d-flex flex-column ${
+          props.leftImagePath !== undefined &&
+          css["card-body-left-image-padding"]
+        }`}
+      >
         {props.headerImagePath !== undefined && (
           <img
             className="mb-2"

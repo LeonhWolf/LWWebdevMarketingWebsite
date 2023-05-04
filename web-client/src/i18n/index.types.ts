@@ -86,6 +86,8 @@ export interface IReferences extends IHeadings {
   };
 }
 
+export interface IAbout extends ICard {}
+
 export interface IMonths {
   january: string;
   february: string;
@@ -111,5 +113,6 @@ export default interface Ii18nStrings {
   service: IService;
   process: IProcess;
   references: IReferences;
+  about: IAbout;
   miscellaneous: IMiscellaneous;
 }

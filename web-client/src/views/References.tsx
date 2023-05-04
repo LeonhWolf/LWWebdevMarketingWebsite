@@ -193,6 +193,7 @@ function References() {
             technologyIcons.mongoDb,
             technologyIcons.swagger,
           ]}
+          // ToDo: add link for Figma, design doc and other doc
           externalLink={{
             link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
             text: t("references.projects.seeCodeButton"),

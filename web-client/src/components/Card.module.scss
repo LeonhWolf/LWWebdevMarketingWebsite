@@ -1,13 +1,14 @@
 @import "../scss/base.scss";
 
-$icon-width-and-height: 45px;
+$top-icon-width-and-height: 45px;
+$left-image-width-and-height: 130px;
 
 #top-icon-wrapper {
   position: absolute;
   top: 41px;
   left: 0px;
-  width: $icon-width-and-height;
-  height: $icon-width-and-height;
+  width: $top-icon-width-and-height;
+  height: $top-icon-width-and-height;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +23,33 @@ $icon-width-and-height: 45px;
   }
 }
 
+#left-image-wrapper {
+  @extend .shadow;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: $left-image-width-and-height;
+  height: $left-image-width-and-height;
+  overflow: hidden;
+  border-radius: 1000px;
+  background-color: white;
+  transform: translate(-50%, -50%);
+
+  #left-image {
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+.card-body-left-image-padding {
+  padding-left: calc(#{$left-image-width-and-height} / 2 + 20px);
+}
+
 .add-top-icon-margin {
-  margin-left: calc(#{$icon-width-and-height} / 2);
+  margin-left: calc(#{$top-icon-width-and-height} / 2);
+}
+.add-left-image-margin {
+  margin-left: calc(#{$left-image-width-and-height} / 2);
 }
 
 .bottom-icon-wrapper {
@@ -53,6 +79,19 @@ $icon-width-and-height: 45px;
   }
   .add-top-icon-margin {
     margin-left: 0;
-    margin-top: calc(#{$icon-width-and-height} / 2);
+    margin-top: calc(#{$top-icon-width-and-height} / 2);
+  }
+
+  #left-image-wrapper {
+    top: 0px;
+    left: calc(#{$left-image-width-and-height} / 2 + 10px);
+  }
+  .add-left-image-margin {
+    margin-left: 0;
+    margin-top: calc(#{$left-image-width-and-height} / 2);
+  }
+  .card-body-left-image-padding {
+    padding-left: var(--bs-card-spacer-x);
+    padding-top: calc(#{$left-image-width-and-height} / 2 + 20px);
   }
 }

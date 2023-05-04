@@ -5,6 +5,7 @@ import type {
   IService,
   IProcess,
   IReferences,
+  IAbout,
   IMonths,
   IMiscellaneous,
 } from "./index.types";
@@ -111,7 +112,7 @@ const references: IReferences = {
         "Development of the whole Vue.js front-end, used in WordPress pages. Connecting to a complex REST API, UI Responsiveness, loading placeholders.",
     },
     spacific: {
-      title: "Software Engineer",
+      title: "Jr. Software Engineer",
       bodyText:
         "Redesign of the application, adjustments/extensions to existing features, implementing multiple guided tours and i18n in .NET Razor.",
     },
@@ -152,6 +153,11 @@ const references: IReferences = {
   },
 };
 
+const about: IAbout = {
+  title: "Let's build successful web apps together!",
+  bodyText: `A high standard is a requirement I set for my own work. This "passion for precision" is something that is of importance for myself. I want to understand my client's needs and do my best to meet them fully. A professional and open way of communicating goes without saying.`,
+};
+
 const monthsShort: IMonths = {
   january: "Jan",
   february: "Feb",
@@ -177,6 +183,7 @@ const i18nStrings: Ii18nStrings = {
   service,
   process,
   references,
+  about,
   miscellaneous,
 };
 export default i18nStrings;

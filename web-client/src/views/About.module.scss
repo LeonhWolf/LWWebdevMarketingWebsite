@@ -1,0 +1,12 @@
+@import "../scss/base.scss";
+
+#orange-tilted-stripe {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 200vw;
+  height: 250vh;
+  z-index: -1;
+  transform: rotate(-10deg);
+  background-color: $secondary;
+}
