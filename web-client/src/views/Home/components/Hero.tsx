@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import css from "./Hero.module.scss";
-import portraitImage from "../assets/PNG/LWWebdev_Portraits_Angled.png";
-import linkedInIcon from "../assets/SVG/linkedin.svg";
+import portraitImage from "../../../assets/PNG/LWWebdev_Portraits_Angled.png";
+import linkedInIcon from "../../../assets/SVG/linkedin.svg";
 
 interface IOrangeTiltedStripeDimensions {
   height: number;

@@ -1,13 +1,7 @@
-import { useEffect, useRef } from "react";
-import { Tooltip } from "bootstrap";
-
+import IconOutline from "./IconOutline";
+import type { IProps as IIconOutline } from "./IconOutline";
 import css from "./Card.module.scss";
 
-export interface IBottomIcon {
-  iconPath: string;
-  borderColor: string;
-  tooltipText?: string;
-}
 export interface IProps {
   title: string;
   bodyText: string;
@@ -15,39 +9,11 @@ export interface IProps {
   topIconStyle?: "solid" | "outline";
   topIconColor?: string;
   topIconPath?: string;
-  bottomIcons?: IBottomIcon[];
+  bottomIcons?: IIconOutline[];
   children?: React.ReactElement;
   headerImagePath?: string;
   leftImagePath?: string;
   subtitleElement?: React.ReactElement;
-}
-
-function IconOutline(props: IBottomIcon) {
-  const bottomIconWrapper = useRef<HTMLDivElement | null>(null);
-  const tooltip = useRef<Tooltip | null>(null);
-
-  useEffect(() => {
-    if (bottomIconWrapper.current === null)
-      return console.error(
-        "The Bootstrap tooltip could not be instantiated. The ref for the HTML Element is 'null'."
-      );
-    tooltip.current = new Tooltip(bottomIconWrapper.current);
-
-    return () => {
-      tooltip.current?.dispose();
-    };
-  }, []);
-
-  return (
-    <div
-      ref={bottomIconWrapper}
-      className={css["bottom-icon-wrapper"]}
-      style={{ borderColor: props.borderColor }}
-      data-bs-title={props.tooltipText}
-    >
-      <img className={css["icon-outline"]} src={props.iconPath} alt="" />
-    </div>
-  );
 }
 
 function Card(props: IProps) {

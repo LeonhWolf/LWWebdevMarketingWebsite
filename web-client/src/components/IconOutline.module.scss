@@ -1,0 +1,21 @@
+@import "../scss/base.scss";
+
+.icon-wrapper {
+  @extend .shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  $width-and-height: 37px;
+  width: $width-and-height;
+  height: $width-and-height;
+  border-radius: 500px;
+  border-width: 1px;
+  border-style: solid;
+
+  .icon-outline {
+    $max-width-and-height: 20px;
+    max-width: $max-width-and-height;
+    max-height: $max-width-and-height;
+  }
+}

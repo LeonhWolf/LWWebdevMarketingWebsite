@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-import HeadingsSection from "../components/HeadingsSection";
-import Card from "../components/Card";
-import type { IProps } from "../components/Card";
+import HeadingsSection from "../../../components/HeadingsSection";
+import Card from "../../../components/Card";
+import type { IProps } from "../../../components/Card";
 import css from "./Process.module.scss";
-import { technologyIcons } from "../utils/uiHelpers";
+import { technologyIcons } from "../../../utils/uiHelpers";
 
 interface IIcons {
   frontEnd: IProps["bottomIcons"];

@@ -1,0 +1,57 @@
+@import "../scss/base.scss";
+
+$padding: 20px 30px;
+
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#navigation {
+  position: relative;
+  display: flex;
+  padding: $padding;
+  background-color: #151519;
+}
+
+#link-wrapper {
+  display: flex;
+  column-gap: 50px;
+  @include center-absolute;
+}
+.nav-link {
+  font-family: DIN2014;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+}
+
+#legal {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  column-gap: 20px;
+  padding: $padding;
+  background-color: #101010;
+  color: #ffffff48;
+}
+#copyright {
+  @include center-absolute;
+  color: inherit;
+}
+.legal-link {
+  color: inherit;
+}
+
+@include media-breakpoint-down(lg) {
+  #navigation,
+  #legal {
+    justify-content: center;
+  }
+  #link-wrapper,
+  #copyright {
+    display: none;
+  }
+}

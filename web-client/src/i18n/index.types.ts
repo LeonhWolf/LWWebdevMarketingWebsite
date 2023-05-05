@@ -1,8 +1,10 @@
-export interface INavbar {
+export interface INavigation {
   [service: string]: string;
   process: string;
   references: string;
   about: string;
+  imprint: string;
+  dataPolicy: string;
 }
 
 interface IHeadings {
@@ -105,10 +107,11 @@ export interface IMonths {
 
 export interface IMiscellaneous {
   monthsShort: IMonths;
+  allRightsReserved: string;
 }
 export default interface Ii18nStrings {
   [key: string]: Object;
-  navbar: INavbar;
+  navigation: INavigation;
   hero: IHero;
   service: IService;
   process: IProcess;

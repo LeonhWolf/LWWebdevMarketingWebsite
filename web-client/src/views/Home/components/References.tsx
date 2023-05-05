@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import HeadingsSection from "../components/HeadingsSection";
-import Carousel from "../components/Carousel";
-import type { IProps as ICarousel } from "../components/Carousel";
-import Card from "../components/Card";
-import { IProps as ICard } from "../components/Card";
-import { technologyIcons } from "../utils/uiHelpers";
-import type { IProjectTypes } from "../i18n/index.types";
+import HeadingsSection from "../../../components/HeadingsSection";
+import Carousel from "../../../components/Carousel";
+import type { IProps as ICarousel } from "../../../components/Carousel";
+import Card from "../../../components/Card";
+import { IProps as ICard } from "../../../components/Card";
+import { technologyIcons } from "../../../utils/uiHelpers";
+import type { IProjectTypes } from "../../../i18n/index.types";
 
-import udemyLogo from "../assets/SVG/Udemy_logo.svg";
-import mongoDbLogo from "../assets/PNG/mongo-db-logo.png";
-import senacorLogo from "../assets/PNG/senacor-logo.png";
-import statisticsStockPhoto from "../assets/PNG/statistics-stock.png";
+import udemyLogo from "../../../assets/SVG/Udemy_logo.svg";
+import mongoDbLogo from "../../../assets/PNG/mongo-db-logo.png";
+import senacorLogo from "../../../assets/PNG/senacor-logo.png";
+import statisticsStockPhoto from "../../../assets/PNG/statistics-stock.png";
 
 interface ICertificateCompany {
   iconPath: string;

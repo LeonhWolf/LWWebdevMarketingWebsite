@@ -2,41 +2,18 @@ import { useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Offcanvas } from "bootstrap";
 
-import { sections } from "../router";
+import { sections } from "../router/constants";
+import { navLinks } from "../utils/uiHelpers";
 import logo from "../assets/SVG/logo.svg";
 import mailIconSecondary from "../assets/SVG/inbox_secondary.svg";
 import mailIconWhite from "../assets/SVG/inbox_white.svg";
 import hamburgerIcon from "../assets/SVG/hamburger_menu.svg";
 import css from "./Navbar.module.scss";
 
-interface INavLink {
-  href: string;
-  titleI18nKey: string;
-}
-
 const Navbar = () => {
   const { t } = useTranslation();
   const offcanvasElement = useRef<HTMLDivElement | null>(null);
   const offcanvasBootstrapElement = useRef<Offcanvas | null>(null);
-
-  const navLinks: INavLink[] = [
-    {
-      href: sections.service,
-      titleI18nKey: "navbar.service",
-    },
-    {
-      href: sections.process,
-      titleI18nKey: "navbar.process",
-    },
-    {
-      href: sections.references,
-      titleI18nKey: "navbar.references",
-    },
-    {
-      href: sections.about,
-      titleI18nKey: "navbar.about",
-    },
-  ];
 
   const mailIconElement = (
     <div

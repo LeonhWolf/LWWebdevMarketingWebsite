@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import Card from "../components/Card";
+import Card from "../../../components/Card";
 import css from "./About.module.scss";
-import signatureLeonhardWolf from "../assets/PNG/signature-leonhardWolf.png";
-import leonhardWolfPortraitFrontal from "../assets/PNG/leonhardWolf-portrait-frontal.png";
+import signatureLeonhardWolf from "../../../assets/PNG/signature-leonhardWolf.png";
+import leonhardWolfPortraitFrontal from "../../../assets/PNG/leonhardWolf-portrait-frontal.png";
 
 function About() {
   const { t } = useTranslation();

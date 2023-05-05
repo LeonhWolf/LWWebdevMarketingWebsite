@@ -1,4 +1,5 @@
-import type { IBottomIcon } from "../components/Card";
+import type { IProps as IIconOutline } from "../components/IconOutline";
+import { sections } from "../router/constants";
 
 import mongoDbLogo from "../assets/PNG/mongo-db-logo.png";
 import reactLogo from "../assets/PNG/react-logo.png";
@@ -28,8 +29,36 @@ import githubLogo from "../assets/PNG/github-logo.png";
 import jiraLogo from "../assets/PNG/jira-logo.png";
 import trelloLogo from "../assets/PNG/trello-logo.png";
 
+type TechnologyIcon = Required<IIconOutline>;
+
 interface ITechnologyIcons {
-  [key: string]: IBottomIcon;
+  react: TechnologyIcon;
+  typescript: TechnologyIcon;
+  reactRouter: TechnologyIcon;
+  redux: TechnologyIcon;
+  i18next: TechnologyIcon;
+  bootstrap: TechnologyIcon;
+  sass: TechnologyIcon;
+  jest: TechnologyIcon;
+  reactTestingLibrary: TechnologyIcon;
+  storybook: TechnologyIcon;
+  nodeJs: TechnologyIcon;
+  express: TechnologyIcon;
+  mongoDb: TechnologyIcon;
+  swagger: TechnologyIcon;
+  postman: TechnologyIcon;
+  gitHub: TechnologyIcon;
+  jira: TechnologyIcon;
+  trello: TechnologyIcon;
+  wordpress: TechnologyIcon;
+  php: TechnologyIcon;
+  vueJs: TechnologyIcon;
+  vueRouter: TechnologyIcon;
+  pinia: TechnologyIcon;
+  angular: TechnologyIcon;
+  dotnet: TechnologyIcon;
+  python: TechnologyIcon;
+  pyQt: TechnologyIcon;
 }
 
 export const technologyIcons: ITechnologyIcons = {
@@ -170,3 +199,27 @@ export const technologyIcons: ITechnologyIcons = {
     tooltipText: "PyQt",
   },
 };
+
+interface INavLink {
+  href: string;
+  titleI18nKey: string;
+}
+
+export const navLinks: INavLink[] = [
+  {
+    href: sections.service,
+    titleI18nKey: "navigation.service",
+  },
+  {
+    href: sections.process,
+    titleI18nKey: "navigation.process",
+  },
+  {
+    href: sections.references,
+    titleI18nKey: "navigation.references",
+  },
+  {
+    href: sections.about,
+    titleI18nKey: "navigation.about",
+  },
+];

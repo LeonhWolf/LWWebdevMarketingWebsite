@@ -45,31 +45,11 @@ $left-image-width-and-height: 130px;
   padding-left: calc(#{$left-image-width-and-height} / 2 + 20px);
 }
 
-.add-top-icon-margin {
+div.add-top-icon-margin {
   margin-left: calc(#{$top-icon-width-and-height} / 2);
 }
-.add-left-image-margin {
+div.add-left-image-margin {
   margin-left: calc(#{$left-image-width-and-height} / 2);
-}
-
-.bottom-icon-wrapper {
-  @extend .shadow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  $width-and-height: 37px;
-  width: $width-and-height;
-  height: $width-and-height;
-  border-radius: 500px;
-  border-width: 1px;
-  border-style: solid;
-
-  .icon-outline {
-    $max-width-and-height: 20px;
-    max-width: $max-width-and-height;
-    max-height: $max-width-and-height;
-  }
 }
 
 @include media-breakpoint-down(md) {
@@ -77,7 +57,7 @@ $left-image-width-and-height: 130px;
     top: 0px;
     left: 41px;
   }
-  .add-top-icon-margin {
+  div.add-top-icon-margin {
     margin-left: 0;
     margin-top: calc(#{$top-icon-width-and-height} / 2);
   }
@@ -86,11 +66,11 @@ $left-image-width-and-height: 130px;
     top: 0px;
     left: calc(#{$left-image-width-and-height} / 2 + 10px);
   }
-  .add-left-image-margin {
+  div.add-left-image-margin {
     margin-left: 0;
     margin-top: calc(#{$left-image-width-and-height} / 2);
   }
-  .card-body-left-image-padding {
+  div.card-body-left-image-padding {
     padding-left: var(--bs-card-spacer-x);
     padding-top: calc(#{$left-image-width-and-height} / 2 + 20px);
   }

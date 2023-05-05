@@ -1,6 +1,6 @@
 import type Ii18nStrings from "./index.types";
 import type {
-  INavbar,
+  INavigation,
   IHero,
   IService,
   IProcess,
@@ -10,11 +10,13 @@ import type {
   IMiscellaneous,
 } from "./index.types";
 
-const navbar: INavbar = {
+const navigation: INavigation = {
   service: "service",
   process: "process",
   references: "references",
   about: "about",
+  imprint: "imprint",
+  dataPolicy: "data policy",
 };
 
 const hero: IHero = {
@@ -175,10 +177,11 @@ const monthsShort: IMonths = {
 
 const miscellaneous: IMiscellaneous = {
   monthsShort,
+  allRightsReserved: "All rights reserved",
 };
 
 const i18nStrings: Ii18nStrings = {
-  navbar,
+  navigation,
   hero,
   service,
   process,

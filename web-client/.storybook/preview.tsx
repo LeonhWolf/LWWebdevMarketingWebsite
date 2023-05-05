@@ -1,4 +1,6 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 import { MINIMAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 import "../src/i18n";
@@ -48,5 +50,13 @@ const preview: Preview = {
     viewport: { viewports: { ...MINIMAL_VIEWPORTS, ...customViewports } },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <MemoryRouter initialEntries={["/"]}>
+      <Story />
+    </MemoryRouter>
+  ),
+];
 
 export default preview;

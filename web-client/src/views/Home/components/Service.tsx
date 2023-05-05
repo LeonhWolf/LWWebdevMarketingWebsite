@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-import HeadingsSection from "../components/HeadingsSection";
-import Card from "../components/Card";
-import rocketIcon from "../assets/SVG/rocket-takeoff.svg";
-import brushIcon from "../assets/SVG/brush.svg";
-import serverIcon from "../assets/SVG/server.svg";
+import HeadingsSection from "../../../components/HeadingsSection";
+import Card from "../../../components/Card";
+import rocketIcon from "../../../assets/SVG/rocket-takeoff.svg";
+import brushIcon from "../../../assets/SVG/brush.svg";
+import serverIcon from "../../../assets/SVG/server.svg";
 
 import css from "./Service.module.scss";
 
