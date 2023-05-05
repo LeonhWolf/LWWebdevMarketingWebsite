@@ -38,7 +38,12 @@ function Card(props: IProps) {
                 : undefined,
           }}
         >
-          <img id={css["top-icon"]} src={props.topIconPath} alt="" />
+          <img
+            id={css["top-icon"]}
+            src={props.topIconPath}
+            alt=""
+            loading="lazy"
+          />
         </div>
       )}
 
@@ -59,6 +64,7 @@ function Card(props: IProps) {
             className="mb-2"
             src={props.headerImagePath}
             style={{ maxWidth: "100%", maxHeight: "100%", width: "100%" }}
+            loading="lazy"
           ></img>
         )}
         <h5

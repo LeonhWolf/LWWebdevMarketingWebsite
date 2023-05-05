@@ -32,7 +32,12 @@ function IconOutline(props: IProps) {
       style={{ borderColor: props.borderColor }}
       data-bs-title={props.tooltipText}
     >
-      <img className={css["icon-outline"]} src={props.iconPath} alt="" />
+      <img
+        className={css["icon-outline"]}
+        src={props.iconPath}
+        alt=""
+        loading="lazy"
+      />
     </div>
   );
 }
