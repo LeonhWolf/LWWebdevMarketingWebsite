@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import HeadingsSection from "../../../components/HeadingsSection";
+import { sections } from "../../../router/constants";
+import Titles from "../../../components/Titles";
 import Card from "../../../components/Card";
 import rocketIcon from "../../../assets/SVG/rocket-takeoff.svg";
 import brushIcon from "../../../assets/SVG/brush.svg";
@@ -12,11 +13,12 @@ function Service() {
   const { t } = useTranslation();
 
   return (
-    <section style={{ backgroundColor: "#f1f1f1" }}>
+    <section id={sections.service} style={{ backgroundColor: "#f1f1f1" }}>
       <div className="section-wrapper container">
-        <HeadingsSection
-          smallTitleText={t("service.smallTitle")}
-          bigTitleText={t("service.bigTitle")}
+        <Titles
+          doCenter={true}
+          smallTitle={t("service.smallTitle")}
+          bigTitle={t("service.bigTitle")}
         />
         <div id={css["cards-wrapper"]}>
           <Card

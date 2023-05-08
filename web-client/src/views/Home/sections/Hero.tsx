@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { sections } from "../../../router/constants";
 import css from "./Hero.module.scss";
 import portraitImage from "../../../assets/PNG/LWWebdev_Portraits_Angled.png";
 import linkedInIcon from "../../../assets/SVG/linkedin.svg";
@@ -52,7 +53,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="position-relative">
+    <section id={sections.hero} className="position-relative">
       <div>
         <div
           id={css["wrapper"]}
@@ -113,7 +114,7 @@ function Hero() {
             </div>
             <div
               id="hero-img-wrapper"
-              className="d-lg-flex d-none flex-grow-1 justify-content-center align-items-end"
+              className="d-lg-flex d-none flex-grow-1 justify-content-center align-items-end mt-3"
               style={{ flexBasis: "0" }}
             >
               <img

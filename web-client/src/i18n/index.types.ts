@@ -4,7 +4,7 @@ export interface INavigation {
   references: string;
   about: string;
   imprint: string;
-  dataPolicy: string;
+  privacyPolicy: string;
 }
 
 interface IHeadings {
@@ -108,6 +108,7 @@ export interface IMonths {
 export interface IMiscellaneous {
   monthsShort: IMonths;
   allRightsReserved: string;
+  legal: string;
 }
 export default interface Ii18nStrings {
   [key: string]: Object;

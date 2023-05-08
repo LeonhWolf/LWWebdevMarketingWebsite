@@ -4,7 +4,7 @@ import i18next from "i18next";
 import References from "./References";
 
 const meta: Meta<typeof References> = {
-  title: "Sections/References",
+  title: "Views/Home/References",
   component: References,
   parameters: {
     layout: "fullscreen",

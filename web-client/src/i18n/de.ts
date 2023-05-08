@@ -16,7 +16,7 @@ const navigation: INavigation = {
   references: "referenzen",
   about: "über mich",
   imprint: "impressum",
-  dataPolicy: "datenschutz",
+  privacyPolicy: "datenschutz",
 };
 
 const hero: IHero = {
@@ -115,7 +115,7 @@ const references: IReferences = {
     spacific: {
       title: "Jr. Software Entwickler",
       bodyText:
-        "Redesign der Applikation, Anpassungen/Erweiterung bestehender Features, Umsetzung mehrerer Guided Tours und i18n in .NET Razor.",
+        "Redesign der Applikation, Anpassungen/Erweiterung bestehender Features, Umsetzung mehrerer Guided Tours und i18n in .NET Razor. Arbeit angelehnt an Scrum.",
     },
     objectWritingTool: {
       title: "Object Writing Tool",
@@ -177,6 +177,7 @@ const monthsShort: IMonths = {
 const miscellaneous: IMiscellaneous = {
   monthsShort,
   allRightsReserved: "Alle Rechte vorbehalten",
+  legal: "Rechtliches",
 };
 
 const i18nStrings: Ii18nStrings = {

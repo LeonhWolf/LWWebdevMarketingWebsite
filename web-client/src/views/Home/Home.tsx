@@ -1,23 +1,20 @@
-import Navbar from "../../components/Navbar";
-import Hero from "./components/Hero";
-import Service from "./components/Service";
-import Process from "./components/Process";
-import References from "./components/References";
-import About from "./components/About";
-import Footer from "../../components/Footer";
+import NavbarFooterTemplate from "../../templates/NavbarFooterTemplate";
+import Hero from "./sections/Hero";
+import Service from "./sections/Service";
+import Process from "./sections/Process";
+import References from "./sections/References";
+import About from "./sections/About";
 import "../../i18n";
 
 function Home() {
   return (
-    <div>
-      <Navbar />
+    <NavbarFooterTemplate doAddNavbarMargin={false}>
       <Hero />
       <Service />
       <Process />
       <References />
       <About />
-      <Footer />
-    </div>
+    </NavbarFooterTemplate>
   );
 }
 

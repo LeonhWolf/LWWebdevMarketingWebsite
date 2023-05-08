@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import { sections } from "../../../router/constants";
 import Card from "../../../components/Card";
 import css from "./About.module.scss";
 import signatureLeonhardWolf from "../../../assets/PNG/signature-leonhardWolf.png";
@@ -10,6 +11,7 @@ function About() {
 
   return (
     <section
+      id={sections.about}
       className="section-wrapper position-relative"
       style={{ overflow: "hidden" }}
     >

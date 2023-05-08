@@ -12,9 +12,9 @@ function Footer() {
   return (
     <footer>
       <div id={css["navigation"]}>
-        <a href={sections.hero}>
+        <Link to={`${routes.home}#${sections.hero}`}>
           <img src={logoWhite} alt="" />
-        </a>
+        </Link>
         <div id={css["link-wrapper"]}>
           {navLinks.map((navLink) => (
             <a
@@ -44,7 +44,7 @@ function Footer() {
           className={`${css["nav-link"]} ${css["legal-link"]}`}
           to={routes.dataPolicy}
         >
-          {t("navigation.dataPolicy")}
+          {t("navigation.privacyPolicy")}
         </Link>
       </div>
     </footer>

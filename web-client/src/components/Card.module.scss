@@ -41,7 +41,7 @@ $left-image-width-and-height: 130px;
     max-height: 100%;
   }
 }
-.card-body-left-image-padding {
+div.card-body-left-image-padding {
   padding-left: calc(#{$left-image-width-and-height} / 2 + 20px);
 }
 

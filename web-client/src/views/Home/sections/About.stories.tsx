@@ -4,7 +4,7 @@ import i18next from "i18next";
 import About from "./About";
 
 const meta: Meta<typeof About> = {
-  title: "Sections/About",
+  title: "Views/Home/About",
   component: About,
   parameters: {
     layout: "fullscreen",

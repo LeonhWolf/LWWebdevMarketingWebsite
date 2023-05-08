@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import HeadingsSection from "../../../components/HeadingsSection";
+import { sections } from "../../../router/constants";
+import Titles from "../../../components/Titles";
 import Carousel from "../../../components/Carousel";
 import type { IProps as ICarousel } from "../../../components/Carousel";
 import Card from "../../../components/Card";
@@ -369,10 +370,11 @@ function References() {
   ]);
 
   return (
-    <div className="section-wrapper container">
-      <HeadingsSection
-        smallTitleText={t("references.smallTitle")}
-        bigTitleText={t("references.bigTitle")}
+    <div id={sections.references} className="section-wrapper container">
+      <Titles
+        doCenter={true}
+        smallTitle={t("references.smallTitle")}
+        bigTitle={t("references.bigTitle")}
       />
       <ul className="nav nav-tabs" id="myTab" role="tablist">
         <li className="nav-item" role="presentation">

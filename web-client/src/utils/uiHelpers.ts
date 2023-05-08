@@ -223,3 +223,32 @@ export const navLinks: INavLink[] = [
     titleI18nKey: "navigation.about",
   },
 ];
+
+interface ILegalData {
+  fullName: string;
+  websiteName: string;
+  websiteUrl: string;
+  address: {
+    street: string;
+    houseNumber: number;
+    zipCode: string;
+    city: string;
+    country: string;
+  };
+  phoneNumber: string;
+  emailAddress: string;
+}
+export const legalData: ILegalData = {
+  fullName: "Leonhard Wolf",
+  websiteName: "LW Webdev",
+  websiteUrl: "lw-webdev.net",
+  address: {
+    street: "Kapellenweg",
+    houseNumber: 18,
+    zipCode: "57518",
+    city: "Betzdorf",
+    country: "Deutschland",
+  },
+  phoneNumber: "+49 1522 39 43 79 0",
+  emailAddress: "leonhardwolf96@gmail.com",
+};

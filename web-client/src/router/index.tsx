@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <Imprint />,
   },
   {
-    path: routes.home,
+    path: routes.dataPolicy,
     element: <DataPolicy />,
   },
 ]);

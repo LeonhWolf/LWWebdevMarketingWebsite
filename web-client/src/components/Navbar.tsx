@@ -1,8 +1,9 @@
 import { useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Offcanvas } from "bootstrap";
+import { Link } from "react-router-dom";
 
-import { sections } from "../router/constants";
+import { routes, sections } from "../router/constants";
 import { navLinks } from "../utils/uiHelpers";
 import logo from "../assets/SVG/logo.svg";
 import mailIconSecondary from "../assets/SVG/inbox_secondary.svg";
@@ -51,12 +52,18 @@ const Navbar = () => {
         id={css["navbar"]}
         className="d-flex container-fluid justify-content-between align-items-center"
       >
-        <a
+        <Link
+          className="navbar-brand d-flex align-items-center"
+          to={`${routes.home}#${sections.hero}`}
+        >
+          <img src={logo} alt="" />
+        </Link>
+        {/* <a
           className="navbar-brand d-flex align-items-center"
           href={`/#${sections.hero}`}
         >
           <img src={logo} alt="" />
-        </a>
+        </a> */}
 
         <button
           id={css["hamburger-button"]}

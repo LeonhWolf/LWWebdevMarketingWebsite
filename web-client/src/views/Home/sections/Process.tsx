@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import HeadingsSection from "../../../components/HeadingsSection";
+import { sections } from "../../../router/constants";
+import Titles from "../../../components/Titles";
 import Card from "../../../components/Card";
 import type { IProps } from "../../../components/Card";
 import css from "./Process.module.scss";
@@ -46,10 +47,11 @@ function Process() {
   const { t } = useTranslation();
 
   return (
-    <section className="section-wrapper">
-      <HeadingsSection
-        smallTitleText={t("process.smallTitle")}
-        bigTitleText={t("process.bigTitle")}
+    <section id={sections.process} className="section-wrapper">
+      <Titles
+        doCenter={true}
+        smallTitle={t("process.smallTitle")}
+        bigTitle={t("process.bigTitle")}
       />
 
       <div className="position-relative">
