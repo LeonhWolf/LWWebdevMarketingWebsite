@@ -10,11 +10,7 @@ function About() {
   const { t } = useTranslation();
 
   return (
-    <section
-      id={sections.about}
-      className="section-wrapper position-relative"
-      style={{ overflow: "hidden" }}
-    >
+    <section id={sections.about} className="section-wrapper position-relative">
       <div className="container">
         <div className="m-auto" style={{ width: "700px", maxWidth: "100%" }}>
           <Card
@@ -31,7 +27,12 @@ function About() {
         </div>
       </div>
 
-      <div id={css["orange-tilted-stripe"]}></div>
+      <div
+        className="w-100 h-100 position-absolute"
+        style={{ top: 0, left: 0, overflow: "hidden" }}
+      >
+        <div id={css["orange-tilted-stripe"]}></div>
+      </div>
     </section>
   );
 }
