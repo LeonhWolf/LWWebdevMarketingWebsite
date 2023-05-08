@@ -11,59 +11,13 @@ const meta: Meta<typeof Navbar> = {
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
-export const DesktopDE: Story = {
+export const DE: Story = {
   play: () => {
     i18next.changeLanguage("de");
   },
   render: () => <Navbar />,
 };
-export const DesktopEN: Story = {
-  play: () => {
-    i18next.changeLanguage("en");
-  },
-  render: () => <Navbar />,
-};
-
-export const TabletDE: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: "iPadMini",
-    },
-  },
-  play: () => {
-    i18next.changeLanguage("de");
-  },
-  render: () => <Navbar />,
-};
-export const TabletEN: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: "iPadMini",
-    },
-  },
-  play: () => {
-    i18next.changeLanguage("en");
-  },
-  render: () => <Navbar />,
-};
-
-export const MobileDE: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: "iPhone12Pro",
-    },
-  },
-  play: () => {
-    i18next.changeLanguage("de");
-  },
-  render: () => <Navbar />,
-};
-export const MobileEN: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: "iPhone12Pro",
-    },
-  },
+export const EN: Story = {
   play: () => {
     i18next.changeLanguage("en");
   },
