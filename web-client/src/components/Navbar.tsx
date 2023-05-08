@@ -58,12 +58,6 @@ const Navbar = () => {
         >
           <img src={logo} alt="" />
         </Link>
-        {/* <a
-          className="navbar-brand d-flex align-items-center"
-          href={`/#${sections.hero}`}
-        >
-          <img src={logo} alt="" />
-        </a> */}
 
         <button
           id={css["hamburger-button"]}
@@ -83,12 +77,12 @@ const Navbar = () => {
               key={navLink.href}
               className={`nav-item ${css["custom-nav-item"]}`}
             >
-              <a
+              <Link
                 className={`nav-link ${css["custom-nav-link"]}`}
-                href={`/#${navLink.href}`}
+                to={`${routes.home}#${navLink.href}`}
               >
                 {t(navLink.titleI18nKey)}
-              </a>
+              </Link>
             </li>
           ))}
           <li className={`nav-item ${css["custom-nav-item"]}`}>
@@ -118,13 +112,13 @@ const Navbar = () => {
               key={navLink.href}
               className={`nav-item ${css["offcanvas-nav-item"]} ${css["custom-nav-item"]}`}
             >
-              <a
+              <Link
                 className={`nav-link ${css["custom-nav-link"]}`}
-                href={`/#${navLink.href}`}
+                to={`${routes.home}#${navLink.href}`}
                 onClick={() => offcanvasBootstrapElement.current?.hide()}
               >
                 {t(navLink.titleI18nKey)}
-              </a>
+              </Link>
             </li>
           ))}
           {mailIconElement}

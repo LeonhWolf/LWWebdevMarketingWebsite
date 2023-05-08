@@ -17,13 +17,13 @@ function Footer() {
         </Link>
         <div id={css["link-wrapper"]}>
           {navLinks.map((navLink) => (
-            <a
+            <Link
               key={navLink.href}
               className={css["nav-link"]}
-              href={navLink.href}
+              to={`${routes.home}#${navLink.href}`}
             >
               {t(navLink.titleI18nKey)}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
