@@ -1,149 +1,19 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { sections } from "../../../router/constants";
-import Titles from "../../../components/Titles";
-import Carousel from "../../../components/Carousel";
-import type { IProps as ICarousel } from "../../../components/Carousel";
-import Card from "../../../components/Card";
-import { IProps as ICard } from "../../../components/Card";
-import { technologyIcons } from "../../../utils/uiHelpers";
-import type { IProjectTypes } from "../../../i18n/index.types";
+import css from "./References.module.scss";
+import { sections } from "../../../../router/constants";
+import Titles from "../../../../components/Titles";
+import Tabs from "../../../../components/Tabs";
+import Carousel from "../../../../components/Carousel";
+import type { IProps as ICarousel } from "../../../../components/Carousel";
+import CardCertificate from "./CardCertificate";
+import CardProject from "./CardProjects";
+import { technologyIcons } from "../../../../utils/uiHelpers";
 
-import udemyLogo from "../../../assets/SVG/Udemy_logo.svg";
-import mongoDbLogo from "../../../assets/PNG/mongo-db-logo.png";
-import senacorLogo from "../../../assets/PNG/senacor-logo.png";
-import statisticsStockPhoto from "../../../assets/PNG/statistics-stock.png";
-
-interface ICertificateCompany {
-  iconPath: string;
-  iconColor: string;
-}
-interface ICertificateCompanyStyles {
-  udemy: ICertificateCompany;
-  mongoDbUniversity: ICertificateCompany;
-}
-interface ICardCertificateProps extends Pick<ICard, "title" | "bodyText"> {
-  link: string;
-  certificateCompany: keyof ICertificateCompanyStyles;
-}
-
-function CardCertificate(props: ICardCertificateProps) {
-  const { t } = useTranslation();
-
-  const certificateCompanyStyles: ICertificateCompanyStyles = {
-    udemy: {
-      iconPath: udemyLogo,
-      iconColor: "#A435F0",
-    },
-    mongoDbUniversity: {
-      iconPath: mongoDbLogo,
-      iconColor: "#10A94F",
-    },
-  };
-
-  return (
-    <Card
-      title={props.title}
-      bodyText={props.bodyText}
-      topIconPath={certificateCompanyStyles[props.certificateCompany].iconPath}
-      topIconStyle="outline"
-      topIconColor={
-        certificateCompanyStyles[props.certificateCompany].iconColor
-      }
-    >
-      <a href={props.link} target="_blank">
-        {t("references.courses.seeCertificateButton")}
-      </a>
-    </Card>
-  );
-}
-
-interface ISubtitleProjectCard {
-  projectType: keyof IProjectTypes;
-  startDate: Date | "WIP";
-  endDate?: Date;
-}
-function SubtitleProjectCard(props: ISubtitleProjectCard) {
-  const { t } = useTranslation();
-  const [monthsShort] = useState<string[]>([
-    t("miscellaneous.monthsShort.january"),
-    t("miscellaneous.monthsShort.february"),
-    t("miscellaneous.monthsShort.march"),
-    t("miscellaneous.monthsShort.april"),
-    t("miscellaneous.monthsShort.may"),
-    t("miscellaneous.monthsShort.june"),
-    t("miscellaneous.monthsShort.july"),
-    t("miscellaneous.monthsShort.august"),
-    t("miscellaneous.monthsShort.september"),
-    t("miscellaneous.monthsShort.october"),
-    t("miscellaneous.monthsShort.november"),
-    t("miscellaneous.monthsShort.december"),
-  ]);
-
-  const getYearAndMonth = (date: Date): string => {
-    const month = monthsShort[date.getMonth()];
-    const dateString = `${month} ${date.getFullYear()} `;
-    return dateString;
-  };
-
-  return (
-    <div
-      className="d-flex justify-content-between flex-wrap text-muted"
-      style={{ fontWeight: "500" }}
-    >
-      <div className="me-4">
-        {t(`references.projects.projectTypes.${props.projectType}`)}
-      </div>
-      {props.startDate === "WIP" && <div>WIP</div>}
-      {props.startDate !== "WIP" && (
-        <div>
-          <div>
-            {getYearAndMonth(props.startDate)}
-            {props.endDate !== undefined
-              ? " - " + getYearAndMonth(props.endDate)
-              : ""}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-interface ICardProjectProps
-  extends Pick<ICard, "title" | "bodyText">,
-    ISubtitleProjectCard {
-  bottomIcons: Required<ICard["bottomIcons"]>;
-  // headerImagePath: Required<ICard["headerImagePath"]>;
-  headerImagePath?: ICard["headerImagePath"];
-  // children?: React.ReactElement;
-  externalLink?: {
-    text: string;
-    link: string;
-  };
-}
-function CardProject(props: ICardProjectProps) {
-  return (
-    <Card
-      title={props.title}
-      subtitleElement={
-        <SubtitleProjectCard
-          projectType={props.projectType}
-          startDate={props.startDate}
-          endDate={props.endDate}
-        />
-      }
-      bodyText={props.bodyText}
-      bottomIcons={props.bottomIcons}
-    >
-      {
-        <a href={props.externalLink?.link} target="_blank">
-          {props.externalLink?.text}
-        </a>
-      }
-    </Card>
-  );
-}
+import wavesBackgroundImage from "../../../../assets/PNG/waves.png";
+import senacorLogo from "../../../../assets/PNG/senacor-logo.png";
+import statisticsStockPhoto from "../../../../assets/PNG/statistics-stock.png";
 
 function References() {
   const { t } = useTranslation();
@@ -370,45 +240,38 @@ function References() {
   ]);
 
   return (
-    <div id={sections.references} className="section-wrapper container">
-      <Titles
-        doCenter={true}
-        smallTitle={t("references.smallTitle")}
-        bigTitle={t("references.bigTitle")}
-      />
-      <ul className="nav nav-tabs" id="myTab" role="tablist">
-        <li className="nav-item" role="presentation">
-          <button
-            id="projects-tab"
-            className="nav-link active"
-            data-bs-toggle="tab"
-            data-bs-target="#projects-tab-pane"
-            type="button"
-          >
-            {t("references.tabTitles.projects")}
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            id="courses-tab"
-            className="nav-link"
-            data-bs-toggle="tab"
-            data-bs-target="#courses-tab-pane"
-            type="button"
-          >
-            {t("references.tabTitles.courses")}
-          </button>
-        </li>
-      </ul>
-      <div className="tab-content">
-        <div id="projects-tab-pane" className="tab-pane fade show active">
-          <Carousel elementsWidthPixels={300} elements={projectCards} />
-        </div>
-        <div id="courses-tab-pane" className="tab-pane fade">
-          <Carousel elementsWidthPixels={300} elements={courseCards} />
-        </div>
+    <section
+      id={sections.references}
+      className={`section-wrapper ${css["wrapper"]}`}
+      style={{ backgroundImage: `url(${wavesBackgroundImage})` }}
+    >
+      <div className="container">
+        <Titles
+          doCenter={true}
+          smallTitle={t("references.smallTitle")}
+          bigTitle={t("references.bigTitle")}
+        />
+
+        <Tabs
+          tabs={[
+            {
+              id: "projects",
+              title: t("references.tabTitles.projects"),
+              element: (
+                <Carousel elementsWidthPixels={300} elements={projectCards} />
+              ),
+            },
+            {
+              id: "courses",
+              title: t("references.tabTitles.courses"),
+              element: (
+                <Carousel elementsWidthPixels={300} elements={courseCards} />
+              ),
+            },
+          ]}
+        />
       </div>
-    </div>
+    </section>
   );
 }
 
