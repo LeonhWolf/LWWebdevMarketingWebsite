@@ -34,7 +34,13 @@ const exampleTextItems: IDropdown["items"] = [
   },
 ];
 export const Text: Story = {
-  render: () => <Dropdown items={exampleTextItems} onItemClick={() => {}} />,
+  render: () => (
+    <Dropdown
+      activeItemIndex={0}
+      items={exampleTextItems}
+      onItemClick={() => {}}
+    />
+  ),
 };
 
 const exampleTIconItems: IDropdown["items"] = [
@@ -50,5 +56,11 @@ const exampleTIconItems: IDropdown["items"] = [
   },
 ];
 export const Icons: Story = {
-  render: () => <Dropdown items={exampleTIconItems} onItemClick={() => {}} />,
+  render: () => (
+    <Dropdown
+      activeItemIndex={0}
+      items={exampleTIconItems}
+      onItemClick={() => {}}
+    />
+  ),
 };

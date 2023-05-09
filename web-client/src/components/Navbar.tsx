@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Offcanvas } from "bootstrap";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { routes, sections } from "../router/constants";
 import { navLinks } from "../utils/uiHelpers";
 import Dropdown from "./Dropdown";
 import type { IProps as IDropdown } from "./Dropdown";
+import type { AvailableTranslations } from "../i18n";
 import logo from "../assets/SVG/logo.svg";
 import mailIconSecondary from "../assets/SVG/inbox_secondary.svg";
 import mailIconWhite from "../assets/SVG/inbox_white.svg";
@@ -15,8 +16,12 @@ import flagDE from "../assets/PNG/flag-de.png";
 import flagUS from "../assets/PNG/flag-us.png";
 import css from "./Navbar.module.scss";
 
+const defaultLanguage: AvailableTranslations = "de";
+
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const [selectedLanguageDropdownIndex, setSelectedLanguageDropdownIndex] =
+    useState<number>(0);
   const offcanvasElement = useRef<HTMLDivElement | null>(null);
   const offcanvasBootstrapElement = useRef<Offcanvas | null>(null);
 
@@ -50,9 +55,43 @@ const Navbar = () => {
     </div>
   );
 
-  const handleLanguageChange = (id: string) => {
-    i18n.changeLanguage(id);
+  const handleLanguageChange = (index: number) => {
+    setSelectedLanguageDropdownIndex(index);
+    const newLanguage = languageDropdownItems[index].id;
+    i18n.changeLanguage(newLanguage);
     offcanvasBootstrapElement.current?.hide();
+  };
+
+  const setLanguage = (language: AvailableTranslations): void => {
+    i18n.changeLanguage(language);
+
+    const languageIndex = languageDropdownItems.findIndex(
+      (dropdownItem) => dropdownItem.id === language
+    );
+    if (languageIndex === -1) {
+      console.error(
+        "The active language dropdown index could not be set. The actual index could not be found."
+      );
+      return;
+    }
+    setSelectedLanguageDropdownIndex(languageIndex);
+  };
+
+  const detectBrowserLanguage = (): void => {
+    const englishLanguageCode: AvailableTranslations = "en";
+    const germanLanguageCode: AvailableTranslations = "de";
+    const browserLanguageCode = navigator.language.slice(0, 2);
+
+    if (browserLanguageCode === englishLanguageCode) {
+      setLanguage(englishLanguageCode);
+      return;
+    }
+    if (browserLanguageCode === germanLanguageCode) {
+      setLanguage(germanLanguageCode);
+      return;
+    }
+
+    i18n.changeLanguage(defaultLanguage);
   };
 
   useEffect(() => {
@@ -65,6 +104,9 @@ const Navbar = () => {
     return () => {
       offcanvasBootstrapElement.current?.dispose();
     };
+  }, []);
+  useEffect(() => {
+    detectBrowserLanguage();
   }, []);
 
   return (
@@ -109,6 +151,7 @@ const Navbar = () => {
 
           <li className={`nav-item ${css["custom-nav-item"]}`}>
             <Dropdown
+              activeItemIndex={selectedLanguageDropdownIndex}
               items={languageDropdownItems}
               onItemClick={handleLanguageChange}
             />
@@ -155,6 +198,7 @@ const Navbar = () => {
             className={`nav-item ${css["offcanvas-nav-item"]} ${css["custom-nav-item"]}`}
           >
             <Dropdown
+              activeItemIndex={selectedLanguageDropdownIndex}
               items={languageDropdownItems}
               onItemClick={handleLanguageChange}
             />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import css from "./Dropdown.module.scss";
 
@@ -15,7 +15,8 @@ export interface IIconItem {
 
 export interface IProps {
   items: ITextItem[] | IIconItem[];
-  onItemClick: (id: string) => void;
+  activeItemIndex: number;
+  onItemClick: (index: number) => void;
 }
 
 function Dropdown(props: IProps) {
@@ -23,11 +24,9 @@ function Dropdown(props: IProps) {
     props.items[0]
   );
 
-  const handleItemClick = (index: number): void => {
-    const clickedItem = props.items[index];
-    setActiveItem(clickedItem);
-    props.onItemClick(clickedItem.id);
-  };
+  useEffect(() => {
+    setActiveItem(props.items[props.activeItemIndex]);
+  }, [props.activeItemIndex]);
 
   return (
     <div className="dropdown">
@@ -51,7 +50,7 @@ function Dropdown(props: IProps) {
           <li
             key={item.id}
             className="dropdown-item"
-            onClick={() => handleItemClick(index)}
+            onClick={() => props.onItemClick(index)}
           >
             {item.type === "text" ? (
               item.title
