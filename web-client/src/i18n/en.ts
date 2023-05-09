@@ -6,6 +6,8 @@ import type {
   IProcess,
   IReferences,
   IAbout,
+  IModalContact,
+  IForms,
   IMonths,
   IMiscellaneous,
 } from "./index.types";
@@ -160,6 +162,36 @@ const about: IAbout = {
   bodyText: `A high standard is a requirement I set for my own work. This "passion for precision" is something that is of importance for myself. I want to understand my client's needs and do my best to meet them fully. A professional and open way of communicating goes without saying.`,
 };
 
+const modalContact: IModalContact = {
+  title: "Get in Touch",
+  buttons: {
+    close: "close",
+    send: "send",
+  },
+  form: {
+    name: {
+      label: "Name",
+      placeholder: "John Doe",
+    },
+    email: {
+      label: "Email",
+      placeholder: "johndoe@gmail.com",
+    },
+    subject: {
+      label: "Subject",
+      placeholder: "Reason for Reaching Out",
+    },
+    message: {
+      label: "Message",
+      placeholder: "Your message...",
+    },
+  },
+};
+
+const forms: IForms = {
+  requiredMessage: 'The field "{{field}}" ist required.',
+};
+
 const monthsShort: IMonths = {
   january: "Jan",
   february: "Feb",
@@ -188,6 +220,8 @@ const i18nStrings: Ii18nStrings = {
   process,
   references,
   about,
+  modalContact,
+  forms,
   miscellaneous,
 };
 export default i18nStrings;

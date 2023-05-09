@@ -1,11 +1,13 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import { MINIMAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 import "../src/i18n";
 import "../src/App.scss";
 import "../src/scss/full.scss";
+import { store } from "../src/store";
 
 interface IViewport {
   name: string;
@@ -53,9 +55,11 @@ const preview: Preview = {
 
 export const decorators = [
   (Story) => (
-    <MemoryRouter initialEntries={["/"]}>
-      <Story />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter initialEntries={["/"]}>
+        <Story />
+      </MemoryRouter>
+    </Provider>
   ),
 ];
 

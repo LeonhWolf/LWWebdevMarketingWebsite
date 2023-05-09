@@ -1,3 +1,5 @@
+import { ITextInput, IEmailInput, ITextarea } from "../components/Form";
+
 export interface INavigation {
   [service: string]: string;
   process: string;
@@ -90,6 +92,27 @@ export interface IReferences extends IHeadings {
 
 export interface IAbout extends ICard {}
 
+type TextField = Omit<ITextInput, "id" | "isRequired" | "type">;
+type EmailField = Omit<IEmailInput, "id" | "isRequired" | "type">;
+type TextareaField = Omit<ITextarea, "id" | "isRequired" | "type">;
+export interface IModalContact {
+  title: string;
+  buttons: {
+    close: string;
+    send: string;
+  };
+  form: {
+    name: TextField;
+    email: EmailField;
+    subject: TextField;
+    message: TextareaField;
+  };
+}
+
+export interface IForms {
+  requiredMessage: string;
+}
+
 export interface IMonths {
   january: string;
   february: string;
@@ -118,5 +141,7 @@ export default interface Ii18nStrings {
   process: IProcess;
   references: IReferences;
   about: IAbout;
+  modalContact: IModalContact;
+  forms: IForms;
   miscellaneous: IMiscellaneous;
 }

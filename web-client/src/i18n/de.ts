@@ -6,6 +6,8 @@ import type {
   IProcess,
   IReferences,
   IAbout,
+  IModalContact,
+  IForms,
   IMonths,
   IMiscellaneous,
 } from "./index.types";
@@ -159,6 +161,36 @@ const about: IAbout = {
   bodyText: `Ein hoher Standard ist eine Voraussetzung, die ich an meine eigene Arbeit stelle. Diese "Leidenschaft für Präzision" ist mir persönlich wichtig. Ich möchte die Bedürfnisse meiner Kunden verstehen, um eine Web App liefern zu können, welche eben diese Ansprüche voll erfüllt. Ein professioneller und offener Umgang ist selbstverständlich.`,
 };
 
+const modalContact: IModalContact = {
+  title: "Kontakt aufnehmen",
+  buttons: {
+    close: "schließen",
+    send: "absenden",
+  },
+  form: {
+    name: {
+      label: "Name",
+      placeholder: "Max Mustermann",
+    },
+    email: {
+      label: "Email",
+      placeholder: "maxmustermann@gmail.com",
+    },
+    subject: {
+      label: "Betreff",
+      placeholder: "Grund des Kontakts",
+    },
+    message: {
+      label: "Nachricht",
+      placeholder: "Ihre Nachricht...",
+    },
+  },
+};
+
+const forms: IForms = {
+  requiredMessage: 'Das Feld "{{field}}" ist erforderlich.',
+};
+
 const monthsShort: IMonths = {
   january: "Jan",
   february: "Feb",
@@ -187,6 +219,8 @@ const i18nStrings: Ii18nStrings = {
   process,
   references,
   about,
+  modalContact,
+  forms,
   miscellaneous,
 };
 export default i18nStrings;
