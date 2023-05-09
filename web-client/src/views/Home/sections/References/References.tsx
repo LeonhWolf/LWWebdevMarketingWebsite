@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import css from "./References.module.scss";
@@ -18,7 +18,7 @@ import statisticsStockPhoto from "../../../../assets/PNG/statistics-stock.png";
 function References() {
   const { t } = useTranslation();
 
-  const [projectCards] = useState<ICarousel["elements"]>([
+  const projectCards: ICarousel["elements"] = [
     {
       key: "marketingWebsite",
       element: (
@@ -64,7 +64,6 @@ function References() {
             technologyIcons.mongoDb,
             technologyIcons.swagger,
           ]}
-          // ToDo: add link for Figma, design doc and other doc
           externalLink={{
             link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
             text: t("references.projects.seeCodeButton"),
@@ -157,9 +156,11 @@ function References() {
         />
       ),
     },
-  ]);
+  ];
+  const [projectCardsState, setProjectCardsState] =
+    useState<ICarousel["elements"]>(projectCards);
 
-  const [courseCards] = useState<ICarousel["elements"]>([
+  const courseCards: ICarousel["elements"] = [
     {
       key: "JavaScript: The Advanced Concepts",
       element: (
@@ -237,7 +238,14 @@ function References() {
         />
       ),
     },
-  ]);
+  ];
+  const [courseCardsState, setCourseCardsState] =
+    useState<ICarousel["elements"]>(courseCards);
+
+  useEffect(() => {
+    setProjectCardsState(projectCards);
+    setCourseCardsState(courseCards);
+  }, [t]);
 
   return (
     <section
@@ -258,14 +266,20 @@ function References() {
               id: "projects",
               title: t("references.tabTitles.projects"),
               element: (
-                <Carousel elementsWidthPixels={300} elements={projectCards} />
+                <Carousel
+                  elementsWidthPixels={300}
+                  elements={projectCardsState}
+                />
               ),
             },
             {
               id: "courses",
               title: t("references.tabTitles.courses"),
               element: (
-                <Carousel elementsWidthPixels={300} elements={courseCards} />
+                <Carousel
+                  elementsWidthPixels={300}
+                  elements={courseCardsState}
+                />
               ),
             },
           ]}

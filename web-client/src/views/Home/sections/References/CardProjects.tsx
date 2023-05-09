@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import Card from "../../../../components/Card";
@@ -12,7 +12,8 @@ interface ISubtitleProjectCard {
 }
 function SubtitleProjectCard(props: ISubtitleProjectCard) {
   const { t } = useTranslation();
-  const [monthsShort] = useState<string[]>([
+
+  const monthsSort: string[] = [
     t("miscellaneous.monthsShort.january"),
     t("miscellaneous.monthsShort.february"),
     t("miscellaneous.monthsShort.march"),
@@ -25,13 +26,19 @@ function SubtitleProjectCard(props: ISubtitleProjectCard) {
     t("miscellaneous.monthsShort.october"),
     t("miscellaneous.monthsShort.november"),
     t("miscellaneous.monthsShort.december"),
-  ]);
+  ];
+  const [monthsShortState, setMonthsShortState] =
+    useState<string[]>(monthsSort);
 
   const getYearAndMonth = (date: Date): string => {
-    const month = monthsShort[date.getMonth()];
+    const month = monthsShortState[date.getMonth()];
     const dateString = `${month} ${date.getFullYear()} `;
     return dateString;
   };
+
+  useEffect(() => {
+    setMonthsShortState(monthsSort);
+  }, [t]);
 
   return (
     <div
