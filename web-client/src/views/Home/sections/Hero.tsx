@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
 import { sections } from "../../../router/constants";
+import { open as openContactModal } from "../../../store/modalSlice";
 import css from "./Hero.module.scss";
 import portraitImage from "../../../assets/PNG/LWWebdev_Portraits_Angled.png";
 import linkedInIcon from "../../../assets/SVG/linkedin.svg";
@@ -13,6 +15,7 @@ interface IOrangeTiltedStripeDimensions {
 
 function Hero() {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const orangeTiltedStripeSvg = useRef<SVGSVGElement | null>(null);
   const [orangeTiltedStripeDimensions, setOrangeTiltedStripeDimensions] =
     useState<IOrangeTiltedStripeDimensions>({
@@ -107,7 +110,10 @@ function Hero() {
                   <span className={css["hero-regular-text"]}>.</span>
                 </div>
 
-                <button className="btn btn-primary shadow mt-3">
+                <button
+                  className="btn btn-primary shadow mt-3"
+                  onClick={() => dispatch(openContactModal())}
+                >
                   {t("hero.contactButtonText")}
                 </button>
               </div>

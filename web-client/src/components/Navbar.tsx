@@ -2,12 +2,14 @@ import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Offcanvas } from "bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { routes, sections } from "../router/constants";
 import { navLinks } from "../utils/uiHelpers";
 import Dropdown from "./Dropdown";
 import type { IProps as IDropdown } from "./Dropdown";
 import type { AvailableTranslations } from "../i18n";
+import { open as openContactModal } from "../store/modalSlice";
 import logo from "../assets/SVG/logo.svg";
 import mailIconSecondary from "../assets/SVG/inbox_secondary.svg";
 import mailIconWhite from "../assets/SVG/inbox_white.svg";
@@ -20,10 +22,16 @@ const defaultLanguage: AvailableTranslations = "de";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
   const [selectedLanguageDropdownIndex, setSelectedLanguageDropdownIndex] =
     useState<number>(0);
   const offcanvasElement = useRef<HTMLDivElement | null>(null);
   const offcanvasBootstrapElement = useRef<Offcanvas | null>(null);
+
+  const handleContactClick = (): void => {
+    offcanvasBootstrapElement.current?.hide();
+    dispatch(openContactModal());
+  };
 
   const languageDropdownItems: IDropdown["items"] = [
     {
@@ -38,10 +46,7 @@ const Navbar = () => {
     },
   ];
   const mailIconElement = (
-    <div
-      id={css["mail-icon-wrapper"]}
-      onClick={() => offcanvasBootstrapElement.current?.hide()}
-    >
+    <div id={css["mail-icon-wrapper"]} onClick={handleContactClick}>
       <img
         id={css["mail-icon-secondary"]}
         className={css["mail-icon"]}
