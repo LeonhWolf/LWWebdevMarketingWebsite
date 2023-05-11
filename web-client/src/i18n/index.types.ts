@@ -92,9 +92,9 @@ export interface IReferences extends IHeadings {
 
 export interface IAbout extends ICard {}
 
-type TextField = Omit<ITextInput, "id" | "isRequired" | "type">;
-type EmailField = Omit<IEmailInput, "id" | "isRequired" | "type">;
-type TextareaField = Omit<ITextarea, "id" | "isRequired" | "type">;
+type TextField = Omit<ITextInput, "id" | "isRequired" | "type" | "value">;
+type EmailField = Omit<IEmailInput, "id" | "isRequired" | "type" | "value">;
+type TextareaField = Omit<ITextarea, "id" | "isRequired" | "type" | "value">;
 export interface IModalContact {
   title: string;
   buttons: {

@@ -9,18 +9,15 @@ import { close } from "../store/modalSlice";
 import type { RootState } from "../store";
 import { sendMailFormContact } from "../services";
 
-type FormValues = Parameters<IForm["onFieldValueChange"]>[0];
-
 function ModalFormContact() {
   const modalElement = useRef<HTMLDivElement | null>(null);
   const modalBootstrap = useRef<Modal | null>(null);
   const [isMailRequestPending, setIsMailRequestPending] =
     useState<boolean>(false);
-  const [doShowRequestError, setDoShowRequestError] = useState<boolean>(false);
   const [doShowRequestSuccess, setDoShowRequestSuccess] =
     useState<boolean>(false);
+  const [doShowRequestError, setDoShowRequestError] = useState<boolean>(false);
   const [doShowValidation, setDoShowValidation] = useState<boolean>(false);
-  const formValues = useRef<FormValues>([]);
   const isFormValid = useRef<boolean>(false);
 
   const { t } = useTranslation();
@@ -28,13 +25,14 @@ function ModalFormContact() {
     (state: RootState) => state.modal.isContactModalOpen
   );
   const dispatch = useDispatch();
-  const formFields: IForm["fields"] = [
+  const [formFields, setFormFields] = useState<IForm["fields"]>([
     {
       type: "text",
       id: "name",
       label: t("modalContact.form.name.label"),
       isRequired: true,
       placeholder: t("modalContact.form.name.placeholder"),
+      value: "",
     },
     {
       type: "email",
@@ -42,6 +40,7 @@ function ModalFormContact() {
       label: t("modalContact.form.email.label"),
       isRequired: true,
       placeholder: t("modalContact.form.email.placeholder"),
+      value: "",
     },
     {
       type: "text",
@@ -49,6 +48,7 @@ function ModalFormContact() {
       label: t("modalContact.form.subject.label"),
       isRequired: true,
       placeholder: t("modalContact.form.subject.placeholder"),
+      value: "",
     },
     {
       type: "textarea",
@@ -56,8 +56,9 @@ function ModalFormContact() {
       label: t("modalContact.form.message.label"),
       isRequired: true,
       placeholder: t("modalContact.form.message.placeholder"),
+      value: "",
     },
-  ];
+  ]);
 
   const handleSendMailRequest = async (): Promise<void> => {
     try {
@@ -66,10 +67,10 @@ function ModalFormContact() {
       setIsMailRequestPending(true);
 
       const response = await sendMailFormContact({
-        senderName: "some name",
-        senderEmail: "some email",
-        topic: "some topic",
-        message: "some message",
+        senderName: formFields[0].value ?? "",
+        senderEmail: formFields[1].value ?? "",
+        topic: formFields[2].value ?? "",
+        message: formFields[3].value ?? "",
       });
 
       if (response.status === 200) {
@@ -90,21 +91,35 @@ function ModalFormContact() {
     dispatch(close());
     setDoShowRequestSuccess(false);
     setDoShowRequestError(false);
+    setDoShowValidation(false);
+
+    const updatedFormFields = formFields.map((formField) => ({
+      ...formField,
+      value: "",
+    }));
+    setFormFields(updatedFormFields);
   };
 
   const handleSendClick = async (): Promise<void> => {
-    if (isFormValid.current === true) {
-      setDoShowValidation(false);
-      await handleSendMailRequest();
+    if (isFormValid.current === false) {
+      setDoShowValidation(true);
+      return;
     }
 
-    setDoShowValidation(true);
+    await handleSendMailRequest();
   };
 
-  const updateFieldValues = (newFormValues: FormValues): void => {
-    newFormValues.forEach((formValue, index) => {
-      formValues.current[index] = formValue;
+  const updateFormFieldValues = (
+    newValue: string,
+    fieldIndex: number
+  ): void => {
+    const updatedFormFields = formFields.map((formField, index) => {
+      if (index === fieldIndex) {
+        return { ...formField, value: newValue };
+      }
+      return { ...formField };
     });
+    setFormFields(updatedFormFields);
   };
 
   useEffect(() => {
@@ -161,7 +176,7 @@ function ModalFormContact() {
             <Form
               doShowValidation={doShowValidation}
               fields={formFields}
-              onFieldValueChange={updateFieldValues}
+              onFieldValueChange={updateFormFieldValues}
               onValidationChange={(isValid) => {
                 isFormValid.current = isValid;
               }}

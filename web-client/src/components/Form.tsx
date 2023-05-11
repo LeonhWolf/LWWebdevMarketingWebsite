@@ -6,6 +6,7 @@ interface IInputBase {
   label: string;
   isRequired: boolean;
   placeholder: string;
+  value: string;
 }
 export interface IEmailInput extends IInputBase {
   type: "email";
@@ -20,59 +21,52 @@ export interface ITextarea extends IInputBase {
 export interface IProps {
   doShowValidation: boolean;
   fields: (IEmailInput | ITextInput | ITextarea)[];
-  onFieldValueChange: (formValues: IFormValue[]) => void;
+  onFieldValueChange: (newValue: string, index: number) => void;
   onValidationChange: (isValid: boolean) => void;
 }
 
-interface IFormValue extends Pick<IInputBase, "id"> {
-  value: string;
+export interface IInputValidity extends Pick<IInputBase, "id"> {
   isValid: boolean;
 }
 
 function Form(props: IProps) {
   const { t } = useTranslation();
-  const [fieldValues, setFieldValues] = useState<IFormValue[]>(
-    props.fields.map((field) => ({ id: field.id, value: "", isValid: false }))
+  const [fieldValidities, setFieldValidities] = useState<IInputValidity[]>(
+    props.fields.map((field) => ({ id: field.id, isValid: false }))
   );
   const isFormValid = useRef<boolean>(false);
-  const doesNeedValidation = useRef<boolean>(false);
 
   const handleFieldValueChange = (
     event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
     fieldIndex: number
   ): void => {
     const newValue = event.currentTarget.value;
-    const updatedFieldValues = fieldValues.map((fieldValue, index) => {
-      if (index === fieldIndex) return { ...fieldValue, value: newValue };
-      return fieldValue;
-    });
-    setFieldValues(updatedFieldValues);
-    doesNeedValidation.current = true;
+    props.onFieldValueChange(newValue, fieldIndex);
   };
 
   const validateForm = (): void => {
     let isWholeFormValid = true;
 
-    const updatedFieldValues = fieldValues.map((fieldValue, index) => {
-      const isFieldRequired = props.fields[index].isRequired;
+    const updatedFieldValidities = fieldValidities.map(
+      (fieldValidity, index) => {
+        const isFieldRequired = props.fields[index].isRequired;
+        const fieldValue = props.fields[index].value;
 
-      if (isFieldRequired && fieldValue.value === "") {
-        isWholeFormValid = false;
-        return { ...fieldValue, isValid: false };
+        if (isFieldRequired && fieldValue === "") {
+          isWholeFormValid = false;
+          return { ...fieldValidity, isValid: false };
+        }
+        return { ...fieldValidity, isValid: true };
       }
-      return { ...fieldValue, isValid: true };
-    });
+    );
 
-    setFieldValues(updatedFieldValues);
+    setFieldValidities(updatedFieldValidities);
     isFormValid.current = isWholeFormValid;
-    doesNeedValidation.current = false;
   };
 
   useEffect(() => {
-    props.onFieldValueChange(fieldValues);
-    if (doesNeedValidation.current === false) return;
     validateForm();
-  }, [fieldValues]);
+  }, [props.fields]);
   useEffect(() => {
     props.onValidationChange(isFormValid.current);
   }, [isFormValid.current]);
@@ -93,6 +87,7 @@ function Form(props: IProps) {
               className="form-control"
               type={field.type}
               placeholder={field.placeholder}
+              value={field.value}
               onInput={(event) => handleFieldValueChange(event, index)}
             />
           )}
@@ -101,12 +96,13 @@ function Form(props: IProps) {
             <textarea
               className="form-control"
               placeholder={field.placeholder}
+              value={field.value}
               onInput={(event) => handleFieldValueChange(event, index)}
             />
           )}
 
           {props.doShowValidation === true &&
-            fieldValues[index].isValid === false && (
+            fieldValidities[index].isValid === false && (
               <div className="form-text text-danger">
                 {t("forms.requiredMessage", { field: field.label })}
               </div>

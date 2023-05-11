@@ -21,6 +21,7 @@ const defaultFormFields: IForm["fields"] = [
     label: "Text Field Label",
     isRequired: false,
     placeholder: "text placeholder",
+    value: "",
   },
   {
     id: "email",
@@ -28,6 +29,7 @@ const defaultFormFields: IForm["fields"] = [
     label: "Email Field Label",
     isRequired: false,
     placeholder: "email placeholder",
+    value: "",
   },
   {
     id: "textarea",
@@ -35,6 +37,7 @@ const defaultFormFields: IForm["fields"] = [
     label: "TextArea Field Label",
     isRequired: false,
     placeholder: "textarea placeholder",
+    value: "",
   },
 ];
 export const Default: Story = {
@@ -55,6 +58,7 @@ const requiredFormFields: IForm["fields"] = [
     label: "Text Field Label",
     isRequired: true,
     placeholder: "text placeholder",
+    value: "",
   },
   {
     id: "email",
@@ -62,6 +66,7 @@ const requiredFormFields: IForm["fields"] = [
     label: "Email Field Label",
     isRequired: true,
     placeholder: "email placeholder",
+    value: "",
   },
   {
     id: "textarea",
@@ -69,6 +74,7 @@ const requiredFormFields: IForm["fields"] = [
     label: "TextArea Field Label",
     isRequired: true,
     placeholder: "textarea placeholder",
+    value: "",
   },
 ];
 export const IsRequired: Story = {
@@ -89,6 +95,7 @@ const validationFormFields: IForm["fields"] = [
     label: "Text Field Label",
     isRequired: true,
     placeholder: "text placeholder",
+    value: "",
   },
   {
     id: "email",
@@ -96,6 +103,7 @@ const validationFormFields: IForm["fields"] = [
     label: "Email Field Label",
     isRequired: true,
     placeholder: "email placeholder",
+    value: "",
   },
   {
     id: "textarea",
@@ -103,6 +111,7 @@ const validationFormFields: IForm["fields"] = [
     label: "TextArea Field Label",
     isRequired: true,
     placeholder: "textarea placeholder",
+    value: "",
   },
 ];
 export const Validation: Story = {

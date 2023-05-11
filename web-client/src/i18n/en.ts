@@ -194,7 +194,7 @@ const modalContact: IModalContact = {
 };
 
 const forms: IForms = {
-  requiredMessage: 'The field "{{field}}" ist required.',
+  requiredMessage: 'The field "{{field}}" is required.',
 };
 
 const monthsShort: IMonths = {

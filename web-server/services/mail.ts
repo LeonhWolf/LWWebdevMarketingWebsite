@@ -49,7 +49,7 @@ export const sendMailContactForm = async (
     text: `topic: ${parameters.topic}, sender name: ${parameters.senderName}, sender email: ${parameters.senderEmail} ${parameters.message}`, // plain text body
     html: `<p><b>topic:</b> ${parameters.topic}<br>
     <b>sender name:</b> ${parameters.senderName}<br>
-    <b>sender email:</b> ${parameters.senderName}</p>
+    <b>sender email:</b> ${parameters.senderEmail}</p>
     <p>${parameters.message}</p>`, // html body
   };
   await transporter.sendMail(mailOptions);
