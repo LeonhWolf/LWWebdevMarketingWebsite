@@ -185,6 +185,11 @@ const modalContact: IModalContact = {
       placeholder: "Ihre Nachricht...",
     },
   },
+  request: {
+    success: "Ihre Nachricht wurde erfolgreich versendet.",
+    error:
+      "Beim Versenden Ihrer Nachricht ist ein Fehler aufgetreten. Versuchen Sie es gerne erneut, oder nehmen Sie Kontakt über das Impressum auf.",
+  },
 };
 
 const forms: IForms = {

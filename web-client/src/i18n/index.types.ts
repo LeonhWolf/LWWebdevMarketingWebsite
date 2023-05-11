@@ -107,6 +107,10 @@ export interface IModalContact {
     subject: TextField;
     message: TextareaField;
   };
+  request: {
+    success: string;
+    error: string;
+  };
 }
 
 export interface IForms {

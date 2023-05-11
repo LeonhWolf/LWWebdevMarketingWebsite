@@ -186,6 +186,11 @@ const modalContact: IModalContact = {
       placeholder: "Your message...",
     },
   },
+  request: {
+    success: "Your message has been sent successfully.",
+    error:
+      "There was an error when trying to send your message. Try again or contact via the imprint instead.",
+  },
 };
 
 const forms: IForms = {

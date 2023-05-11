@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Modal } from "bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,10 +7,22 @@ import Form from "./Form";
 import type { IProps as IForm } from "./Form";
 import { close } from "../store/modalSlice";
 import type { RootState } from "../store";
+import { sendMailFormContact } from "../services";
+
+type FormValues = Parameters<IForm["onFieldValueChange"]>[0];
 
 function ModalFormContact() {
   const modalElement = useRef<HTMLDivElement | null>(null);
   const modalBootstrap = useRef<Modal | null>(null);
+  const [isMailRequestPending, setIsMailRequestPending] =
+    useState<boolean>(false);
+  const [doShowRequestError, setDoShowRequestError] = useState<boolean>(false);
+  const [doShowRequestSuccess, setDoShowRequestSuccess] =
+    useState<boolean>(false);
+  const [doShowValidation, setDoShowValidation] = useState<boolean>(false);
+  const formValues = useRef<FormValues>([]);
+  const isFormValid = useRef<boolean>(false);
+
   const { t } = useTranslation();
   const isContactModalOpen = useSelector(
     (state: RootState) => state.modal.isContactModalOpen
@@ -47,8 +59,52 @@ function ModalFormContact() {
     },
   ];
 
+  const handleSendMailRequest = async (): Promise<void> => {
+    try {
+      setDoShowRequestSuccess(false);
+      setDoShowRequestError(false);
+      setIsMailRequestPending(true);
+
+      const response = await sendMailFormContact({
+        senderName: "some name",
+        senderEmail: "some email",
+        topic: "some topic",
+        message: "some message",
+      });
+
+      if (response.status === 200) {
+        setDoShowRequestSuccess(true);
+      } else {
+        setDoShowRequestError(true);
+      }
+
+      setIsMailRequestPending(false);
+    } catch (error) {
+      console.error(error);
+      setIsMailRequestPending(false);
+      setDoShowRequestError(true);
+    }
+  };
+
   const handleModalHidden = (): void => {
     dispatch(close());
+    setDoShowRequestSuccess(false);
+    setDoShowRequestError(false);
+  };
+
+  const handleSendClick = async (): Promise<void> => {
+    if (isFormValid.current === true) {
+      setDoShowValidation(false);
+      await handleSendMailRequest();
+    }
+
+    setDoShowValidation(true);
+  };
+
+  const updateFieldValues = (newFormValues: FormValues): void => {
+    newFormValues.forEach((formValue, index) => {
+      formValues.current[index] = formValue;
+    });
   };
 
   useEffect(() => {
@@ -87,8 +143,6 @@ function ModalFormContact() {
       className="modal fade"
       id="exampleModal"
       tabIndex={-1}
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
     >
       <div className="modal-dialog">
         <div className="modal-content">
@@ -100,17 +154,28 @@ function ModalFormContact() {
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Close"
             ></button>
           </div>
 
           <div className="modal-body">
             <Form
-              doShowValidation={false}
+              doShowValidation={doShowValidation}
               fields={formFields}
-              onFieldValueChange={() => {}}
-              onValidationChange={() => {}}
+              onFieldValueChange={updateFieldValues}
+              onValidationChange={(isValid) => {
+                isFormValid.current = isValid;
+              }}
             />
+            {doShowRequestSuccess === true && (
+              <p className="text-success mb-0">
+                {t("modalContact.request.success")}
+              </p>
+            )}
+            {doShowRequestError === true && (
+              <p className="text-danger mb-0">
+                {t("modalContact.request.error")}
+              </p>
+            )}
           </div>
 
           <div className="modal-footer justify-content-between">
@@ -121,7 +186,13 @@ function ModalFormContact() {
             >
               {t("modalContact.buttons.close")}
             </button>
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className={`btn btn-primary ${
+                isMailRequestPending === true && "disabled"
+              }`}
+              onClick={handleSendClick}
+            >
               {t("modalContact.buttons.send")}
             </button>
           </div>

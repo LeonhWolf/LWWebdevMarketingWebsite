@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
+
 import { getEnvironmentVariable } from "../utils/environmentVariables";
+import type { IMailFormContact } from "../../requestTypes";
 
 const mailConfig = {
   host: getEnvironmentVariable("MAILCONFIG_HOST"),
@@ -29,12 +31,8 @@ async function init() {
   transporter = newTransporter;
 }
 
-export interface ISendMailContactFormParameters {
+export interface ISendMailContactFormParameters extends IMailFormContact {
   domain: string;
-  senderName: string;
-  senderEmail: string;
-  topic: string;
-  message: string;
 }
 export const sendMailContactForm = async (
   parameters: ISendMailContactFormParameters

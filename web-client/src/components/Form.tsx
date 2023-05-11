@@ -69,12 +69,13 @@ function Form(props: IProps) {
   };
 
   useEffect(() => {
+    props.onFieldValueChange(fieldValues);
     if (doesNeedValidation.current === false) return;
     validateForm();
   }, [fieldValues]);
   useEffect(() => {
     props.onValidationChange(isFormValid.current);
-  }, [isFormValid]);
+  }, [isFormValid.current]);
 
   return (
     <form className="d-flex flex-column" style={{ rowGap: "25px" }}>

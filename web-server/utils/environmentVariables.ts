@@ -1,13 +1,15 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-
-interface EnvironmentVariables {
+interface IMailConfig {
   MAILCONFIG_HOST: string;
   MAILCONFIG_PORT: string;
   MAILCONFIG_USER: string;
   MAILCONFIG_PASSWORD: string;
   MAILCONFIG_MAILADDRESS: string;
   MAILCONFIG_RECIPIENTADDRESS: string;
+}
+interface EnvironmentVariables extends IMailConfig {
+  WEB_CLIENT_ORIGIN: string;
 }
 const environmentVariables: EnvironmentVariables = {
   MAILCONFIG_HOST: "",
@@ -16,6 +18,7 @@ const environmentVariables: EnvironmentVariables = {
   MAILCONFIG_PASSWORD: "",
   MAILCONFIG_MAILADDRESS: "",
   MAILCONFIG_RECIPIENTADDRESS: "",
+  WEB_CLIENT_ORIGIN: "",
 };
 
 const checkEnvironmentVariables = (): void => {
