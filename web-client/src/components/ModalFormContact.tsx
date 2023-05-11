@@ -20,12 +20,12 @@ function ModalFormContact() {
   const [doShowValidation, setDoShowValidation] = useState<boolean>(false);
   const isFormValid = useRef<boolean>(false);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isContactModalOpen = useSelector(
     (state: RootState) => state.modal.isContactModalOpen
   );
   const dispatch = useDispatch();
-  const [formFields, setFormFields] = useState<IForm["fields"]>([
+  const getInitialFormFields = (): IForm["fields"] => [
     {
       type: "text",
       id: "name",
@@ -58,7 +58,10 @@ function ModalFormContact() {
       placeholder: t("modalContact.form.message.placeholder"),
       value: "",
     },
-  ]);
+  ];
+  const [formFields, setFormFields] = useState<IForm["fields"]>(
+    getInitialFormFields()
+  );
 
   const handleSendMailRequest = async (): Promise<void> => {
     try {
@@ -93,7 +96,7 @@ function ModalFormContact() {
     setDoShowRequestError(false);
     setDoShowValidation(false);
 
-    const updatedFormFields = formFields.map((formField) => ({
+    const updatedFormFields = getInitialFormFields().map((formField) => ({
       ...formField,
       value: "",
     }));
@@ -151,6 +154,16 @@ function ModalFormContact() {
       modalBootstrap.current?.dispose();
     };
   }, []);
+
+  useEffect(() => {
+    const languageUpdatedFormFields = getInitialFormFields().map(
+      (initialFormField, index) => ({
+        ...initialFormField,
+        value: formFields[index].value,
+      })
+    );
+    setFormFields(languageUpdatedFormFields);
+  }, [i18n.language]);
 
   return (
     <div
