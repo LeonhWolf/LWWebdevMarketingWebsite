@@ -33,7 +33,7 @@ function References() {
             technologyIcons.reactRouter,
             technologyIcons.i18next,
             technologyIcons.bootstrap,
-            technologyIcons.sass,
+            technologyIcons.docker,
           ]}
           externalLink={{
             link: "https://github.com/LeonhWolf/LWWebdevMarketingWebsite",

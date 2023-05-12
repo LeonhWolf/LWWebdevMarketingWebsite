@@ -28,6 +28,7 @@ import dotnetLogo from "../assets/PNG/dotnet-logo.png";
 import githubLogo from "../assets/PNG/github-logo.png";
 import jiraLogo from "../assets/PNG/jira-logo.png";
 import trelloLogo from "../assets/PNG/trello-logo.png";
+import dockerLogo from "../assets/PNG/docker-logo.png";
 
 type TechnologyIcon = Required<IIconOutline>;
 
@@ -59,6 +60,7 @@ interface ITechnologyIcons {
   dotnet: TechnologyIcon;
   python: TechnologyIcon;
   pyQt: TechnologyIcon;
+  docker: TechnologyIcon;
 }
 
 export const technologyIcons: ITechnologyIcons = {
@@ -197,6 +199,11 @@ export const technologyIcons: ITechnologyIcons = {
     iconPath: pyqtLogo,
     borderColor: "#7FC240",
     tooltipText: "PyQt",
+  },
+  docker: {
+    iconPath: dockerLogo,
+    borderColor: "#2396ED",
+    tooltipText: "Docker",
   },
 };
 
