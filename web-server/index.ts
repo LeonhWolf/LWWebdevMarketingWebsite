@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import expressStaticGzip from "express-static-gzip";
 
 import { getEnvironmentVariable } from "./utils/environmentVariables";
 import contactFormPostHandler from "./routes/contactForm";
@@ -14,7 +15,12 @@ app.use(
     origin: getEnvironmentVariable("WEB_CLIENT_ORIGIN"),
   })
 );
-app.use(express.static("./public"));
+app.use(
+  expressStaticGzip("./public", {
+    enableBrotli: true,
+    orderPreference: ["br", "gzip"],
+  })
+);
 
 const mailFormContactRoute: MailFormContactRoute = "/contact-form";
 app.post(mailFormContactRoute, contactFormPostHandler);
