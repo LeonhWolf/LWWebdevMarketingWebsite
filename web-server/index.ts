@@ -6,14 +6,15 @@ import contactFormPostHandler from "./routes/contactForm";
 import type { MailFormContactRoute } from "../requestTypes";
 
 const app = express();
+const port = 5500;
+
 app.use(express.json());
 app.use(
   cors({
     origin: getEnvironmentVariable("WEB_CLIENT_ORIGIN"),
   })
 );
-
-const port = 5500;
+app.use(express.static("./public"));
 
 const mailFormContactRoute: MailFormContactRoute = "/contact-form";
 app.post(mailFormContactRoute, contactFormPostHandler);
