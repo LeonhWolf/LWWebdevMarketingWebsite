@@ -6,49 +6,48 @@ This is the repository for my portfolio website. Feel free to have a look around
 
 ### Build the Image
 
-> docker image build . -t image-tag-you-choose --progress=plain
+>`docker image build . -t image-tag-you-choose --progress=plain`
 
-**Path to the Dockerfile:**
+Path to the Dockerfile:
 
-_build ./path/to/Dockerfile_
+`build ./path/to/Dockerfile`
 
-**Enable logging while building the image:**
+Enable logging while building the image:
 
-_--progress=plain_
+`--progress=plain`
 
 ### Run the Container
 
-> docker container run -d -p host-port:container-port --env-file /path/to/env/file --name name-of-container image-tag
+>`docker container run -d -p host-port:container-port --env-file /path/to/env/file --name name-of-container image-tag`
 
-**Run detached (without blocking the CLI):**
+Run detached (without blocking the CLI):
 
-_-d_
+`-d`
 
-**Port mapping:**
+Port mapping:
 
-_-p host-port-container:container-port_
+`-p host-port-container:container-port`
 
-**Read environment variables from .env file into the container**
+Read environment variables from .env file into the container
 
-_--env-file ./path/to/file_
+`--env-file ./path/to/file`
 
-The variables need to be in format: ENV_KEY=env-value
-(no quotation marks for the value!)
+_(the variables need to be in format: ENV_KEY=env-value, so no quotation marks for the value)_
 
-**Give the container a custom name:**
+Give the container a custom name:
 
-_--name the-name-you-choose_
+`--name the-name-you-choose`
 
 ### Run Commands in a Running Container
 
-> docker exec -it container-name bash
+>`docker exec -it container-name bash`
 
-**Go into the container:**
+Go into the container:
 
-_-it_
+`-it`
 
-(stands for interactive)
+_(stands for interactive)_
 
 ### See the Logs of a Container
 
-> docker container logs container-name
+>`docker container logs container-name`
