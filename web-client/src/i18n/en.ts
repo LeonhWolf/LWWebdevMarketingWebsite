@@ -88,7 +88,8 @@ const references: IReferences = {
     courses: "Courses",
   },
   projects: {
-    seeCodeButton: "See code",
+    seeCode: "See code",
+    seeEmploymentReferenceLetter: "See employment reference letter",
     projectTypes: {
       freelancing: "Freelancing",
       employment: "Employment",

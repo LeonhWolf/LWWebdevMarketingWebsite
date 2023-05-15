@@ -13,10 +13,14 @@ import { technologyIcons } from "../../../../utils/uiHelpers";
 
 import wavesBackgroundImage from "../../../../assets/PNG/waves.png";
 import senacorLogo from "../../../../assets/PNG/senacor-logo.png";
+//@ts-ignore
+import employmentReferenceLetterDE from "../../../../assets/PDF/Arbeitszeugnis_Spacific.pdf";
+//@ts-ignore
+import employmentReferenceLetterEN from "../../../../assets/PDF/EmploymentReferenceLetter_Spacific.pdf";
 import statisticsStockPhoto from "../../../../assets/PNG/statistics-stock.png";
 
 function References() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const projectCards: ICarousel["elements"] = [
     {
@@ -35,10 +39,12 @@ function References() {
             technologyIcons.bootstrap,
             technologyIcons.docker,
           ]}
-          externalLink={{
-            link: "https://github.com/LeonhWolf/LWWebdevMarketingWebsite",
-            text: t("references.projects.seeCodeButton"),
-          }}
+          externalLinks={[
+            {
+              link: "https://github.com/LeonhWolf/LWWebdevMarketingWebsite",
+              text: t("references.projects.seeCode"),
+            },
+          ]}
         />
       ),
     },
@@ -64,10 +70,12 @@ function References() {
             technologyIcons.mongoDb,
             technologyIcons.swagger,
           ]}
-          externalLink={{
-            link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
-            text: t("references.projects.seeCodeButton"),
-          }}
+          externalLinks={[
+            {
+              link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
+              text: t("references.projects.seeCode"),
+            },
+          ]}
         />
       ),
     },
@@ -120,6 +128,15 @@ function References() {
             technologyIcons.sass,
             technologyIcons.dotnet,
           ]}
+          externalLinks={[
+            {
+              text: t("references.projects.seeEmploymentReferenceLetter"),
+              link:
+                i18n.language === "en"
+                  ? employmentReferenceLetterEN
+                  : employmentReferenceLetterDE,
+            },
+          ]}
         />
       ),
     },
@@ -137,10 +154,12 @@ function References() {
             technologyIcons.jest,
             technologyIcons.mongoDb,
           ]}
-          externalLink={{
-            link: "https://bitbucket.org/LeonhardWolf/objectwritingtool/src/master/",
-            text: t("references.projects.seeCodeButton"),
-          }}
+          externalLinks={[
+            {
+              link: "https://bitbucket.org/LeonhardWolf/objectwritingtool/src/master/",
+              text: t("references.projects.seeCode"),
+            },
+          ]}
         />
       ),
     },

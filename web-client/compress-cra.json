@@ -10,6 +10,7 @@
     ".wav",
     ".tff",
     ".woff2",
-    ".map"
+    ".map",
+    ".pdf"
   ]
 }

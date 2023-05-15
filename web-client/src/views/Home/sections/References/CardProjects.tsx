@@ -69,11 +69,10 @@ interface ICardProjectProps
   bottomIcons: Required<ICard["bottomIcons"]>;
   // headerImagePath: Required<ICard["headerImagePath"]>;
   headerImagePath?: ICard["headerImagePath"];
-  // children?: React.ReactElement;
-  externalLink?: {
+  externalLinks?: {
     text: string;
     link: string;
-  };
+  }[];
 }
 function CardProject(props: ICardProjectProps) {
   return (
@@ -89,11 +88,18 @@ function CardProject(props: ICardProjectProps) {
       bodyText={props.bodyText}
       bottomIcons={props.bottomIcons}
     >
-      {
-        <a href={props.externalLink?.link} target="_blank" rel="noreferrer">
-          {props.externalLink?.text}
-        </a>
-      }
+      <div>
+        {props.externalLinks?.map((externalLink) => (
+          <a
+            key={externalLink.link}
+            href={externalLink.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {externalLink.text}
+          </a>
+        ))}
+      </div>
     </Card>
   );
 }
