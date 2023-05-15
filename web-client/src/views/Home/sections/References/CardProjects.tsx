@@ -88,7 +88,7 @@ function CardProject(props: ICardProjectProps) {
       bodyText={props.bodyText}
       bottomIcons={props.bottomIcons}
     >
-      <div>
+      <div className="d-flex flex-column">
         {props.externalLinks?.map((externalLink) => (
           <a
             key={externalLink.link}

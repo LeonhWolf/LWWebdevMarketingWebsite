@@ -13,10 +13,9 @@ import { technologyIcons } from "../../../../utils/uiHelpers";
 
 import wavesBackgroundImage from "../../../../assets/PNG/waves.png";
 import senacorLogo from "../../../../assets/PNG/senacor-logo.png";
-//@ts-ignore
 import employmentReferenceLetterDE from "../../../../assets/PDF/Arbeitszeugnis_Spacific.pdf";
-//@ts-ignore
 import employmentReferenceLetterEN from "../../../../assets/PDF/EmploymentReferenceLetter_Spacific.pdf";
+import songwritingToolSRS from "../../../../assets/PDF/SongwritingTool_SoftwareRequirementsSpecification.pdf";
 import statisticsStockPhoto from "../../../../assets/PNG/statistics-stock.png";
 
 function References() {
@@ -74,6 +73,16 @@ function References() {
             {
               link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
               text: t("references.projects.seeCode"),
+            },
+            {
+              text: t("references.projects.seeUiDesign"),
+              link: "https://www.figma.com/file/nw5SlTDLPnLQt3qfeV5kkz/SongwritingTool_UIDesign?type=design&node-id=2003%3A533778&t=EHgj1oY3X3DWQD08-1",
+            },
+            {
+              text: t(
+                "references.projects.seeSoftwareRequirementsSpecification"
+              ),
+              link: songwritingToolSRS,
             },
           ]}
         />

@@ -88,8 +88,10 @@ const references: IReferences = {
     courses: "Kurse",
   },
   projects: {
-    seeCode: "Code ansehen",
-    seeEmploymentReferenceLetter: "Arbeitszeugnis ansehen",
+    seeCode: "Code",
+    seeEmploymentReferenceLetter: "Arbeitszeugnis",
+    seeUiDesign: "UI Design",
+    seeSoftwareRequirementsSpecification: "Software Requirements Specification",
     projectTypes: {
       freelancing: "Freelancing",
       employment: "Festanstellung",
