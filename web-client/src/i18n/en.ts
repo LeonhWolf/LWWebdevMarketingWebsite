@@ -101,12 +101,12 @@ const references: IReferences = {
     marketingWebsite: {
       title: "Marketing Website",
       bodyText:
-        "This very marketing website. It includes i18n, custom front-end components like this carousel and animations.",
+        "This very marketing website. It includes i18n, custom front-end components like this carousel, loading time optimization.",
     },
     songwritingTool: {
       title: "Songwriting Tool",
       bodyText:
-        "Tool to assist in multiple chores for songwriting training. The app includes authentication.",
+        "Tool to assist in multiple chores for songwriting training, including authentication, high test coverage (TDD).",
     },
     senacor: {
       title: "Double Opt-In",
@@ -126,12 +126,12 @@ const references: IReferences = {
     objectWritingTool: {
       title: "Object Writing Tool",
       bodyText:
-        "Tool to assist with a songwriting exercise called Object Writing.",
+        "Tool to assist with a songwriting exercise called Object Writing, high test coverage (TDD).",
     },
     tutoring: {
       title: "Tutoring in Python",
       bodyText:
-        "Tutoring for an undergraduate, development of an app to display Covid statistics.",
+        "Tutoring for an undergraduate, development of an app to display Covid statistics, writing unit tests.",
     },
   },
   courses: {

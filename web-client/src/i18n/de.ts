@@ -101,12 +101,12 @@ const references: IReferences = {
     marketingWebsite: {
       title: "Marketing Website",
       bodyText:
-        "Diese Marketing Webseite. Features sind i18n, selbst erstellte Components wie dieses Carousel und Animationen.",
+        "Diese Marketing Webseite. Features sind i18n, selbst erstellte Components wie dieses Carousel, Ladezeitenoptimierung.",
     },
     songwritingTool: {
       title: "Songwriting Tool",
       bodyText:
-        "Tool zur Unterstützung bei repetitiven Aufgaben beim Songwriting Training, inkl. Authentifizierung.",
+        "Tool zur Unterstützung bei repetitiven Aufgaben beim Songwriting Training, inkl. Authentifizierung, hohe Testabdeckung (TDD).",
     },
     senacor: {
       title: "Double Opt-In",
@@ -125,12 +125,12 @@ const references: IReferences = {
     objectWritingTool: {
       title: "Object Writing Tool",
       bodyText:
-        "Tool zur Unterstützung bei einer Songwriting Übung namens Object Writing.",
+        "Tool zur Unterstützung bei einer Songwriting Übung namens Object Writing, hohe Testabdeckung (TDD).",
     },
     tutoring: {
       title: "Nachhilfe in Python",
       bodyText:
-        "Nachhilfe für eine Kommilitonin, Entwicklung einer App für die Darstellung von Corona-Statistiken.",
+        "Nachhilfe für eine Kommilitonin, Entwicklung einer App für die Darstellung von Corona-Statistiken, Schreiben von Unit-Tests.",
     },
   },
   courses: {
