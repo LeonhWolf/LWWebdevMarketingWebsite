@@ -71,6 +71,8 @@ export interface IReferences extends IHeadings {
     seeEmploymentReferenceLetter: string;
     seeUiDesign: string;
     seeSoftwareRequirementsSpecification: string;
+    technologies: string;
+    links: string;
     projectTypes: IProjectTypes;
     marketingWebsite: ICard;
     songwritingTool: ICard;

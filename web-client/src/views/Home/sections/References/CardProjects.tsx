@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import Card from "../../../../components/Card";
-import { IProps as ICard } from "../../../../components/Card";
+import type { IProps as ICard } from "../../../../components/Card";
+import Accordion from "../../../../components/Accordion";
+import type { IProps as IAccordion } from "../../../../components/Accordion";
+import ListIcons from "../../../../components/ListIcons";
+import { IProps as IListIcons } from "../../../../components/ListIcons";
 import { IProjectTypes } from "../../../../i18n/index.types";
 
 interface ISubtitleProjectCard {
@@ -66,7 +70,7 @@ function SubtitleProjectCard(props: ISubtitleProjectCard) {
 interface ICardProjectProps
   extends Pick<ICard, "title" | "bodyText">,
     ISubtitleProjectCard {
-  bottomIcons: Required<ICard["bottomIcons"]>;
+  technologyIcons: Required<IListIcons["icons"]>;
   // headerImagePath: Required<ICard["headerImagePath"]>;
   headerImagePath?: ICard["headerImagePath"];
   externalLinks?: {
@@ -75,6 +79,42 @@ interface ICardProjectProps
   }[];
 }
 function CardProject(props: ICardProjectProps) {
+  const { t, i18n } = useTranslation();
+  const [accordionItems, setAccordionItems] = useState<IAccordion["items"]>([]);
+  useEffect(() => {
+    const newAccordionItems: typeof accordionItems = [
+      {
+        id: "technology-icons",
+        title: t("references.projects.technologies"),
+        element: <ListIcons icons={props.technologyIcons} />,
+      },
+    ];
+
+    if (props.externalLinks !== undefined && props.externalLinks.length > 0) {
+      const externalLinksAccordionItem: (typeof accordionItems)[0] = {
+        id: "external-links",
+        title: t("references.projects.links"),
+        element: (
+          <div className="d-flex flex-column" style={{ rowGap: "10px" }}>
+            {props.externalLinks?.map((externalLink) => (
+              <a
+                key={externalLink.link}
+                href={externalLink.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {externalLink.text}
+              </a>
+            ))}
+          </div>
+        ),
+      };
+      newAccordionItems.push(externalLinksAccordionItem);
+    }
+
+    setAccordionItems(newAccordionItems);
+  }, [props.technologyIcons, props.externalLinks, i18n.language]);
+
   return (
     <Card
       title={props.title}
@@ -86,20 +126,8 @@ function CardProject(props: ICardProjectProps) {
         />
       }
       bodyText={props.bodyText}
-      bottomIcons={props.bottomIcons}
     >
-      <div className="d-flex flex-column">
-        {props.externalLinks?.map((externalLink) => (
-          <a
-            key={externalLink.link}
-            href={externalLink.link}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {externalLink.text}
-          </a>
-        ))}
-      </div>
+      <Accordion items={accordionItems} />
     </Card>
   );
 }

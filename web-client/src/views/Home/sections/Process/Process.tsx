@@ -1,17 +1,17 @@
 import { useTranslation } from "react-i18next";
 
-import { sections } from "../../../router/constants";
-import Titles from "../../../components/Titles";
-import Card from "../../../components/Card";
-import type { IProps } from "../../../components/Card";
+import { sections } from "../../../../router/constants";
+import Titles from "../../../../components/Titles";
+import CardTool from "./CardTool";
+import type { IProps as ICardTool } from "./CardTool";
 import css from "./Process.module.scss";
-import { technologyIcons } from "../../../utils/uiHelpers";
+import { technologyIcons } from "../../../../utils/uiHelpers";
 
 interface IIcons {
-  frontEnd: IProps["bottomIcons"];
-  backEnd: IProps["bottomIcons"];
-  testing: IProps["bottomIcons"];
-  projectManagement: IProps["bottomIcons"];
+  frontEnd: ICardTool["icons"];
+  backEnd: ICardTool["icons"];
+  testing: ICardTool["icons"];
+  projectManagement: ICardTool["icons"];
 }
 
 const icons: IIcons = {
@@ -57,25 +57,25 @@ function Process() {
       <div className="position-relative">
         <div className="container d-flex justify-content-center">
           <div id={css["cards-wrapper"]}>
-            <Card
+            <CardTool
               title={t("process.frontEnd.title")}
               bodyText={t("process.frontEnd.bodyText")}
-              bottomIcons={icons.frontEnd}
+              icons={icons.frontEnd}
             />
-            <Card
+            <CardTool
               title={t("process.backEnd.title")}
               bodyText={t("process.backEnd.bodyText")}
-              bottomIcons={icons.backEnd}
+              icons={icons.backEnd}
             />
-            <Card
+            <CardTool
               title={t("process.testing.title")}
               bodyText={t("process.testing.bodyText")}
-              bottomIcons={icons.testing}
+              icons={icons.testing}
             />
-            <Card
+            <CardTool
               title={t("process.projectManagement.title")}
               bodyText={t("process.projectManagement.bodyText")}
-              bottomIcons={icons.projectManagement}
+              icons={icons.projectManagement}
             />
           </div>
         </div>

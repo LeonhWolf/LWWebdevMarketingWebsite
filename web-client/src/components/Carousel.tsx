@@ -173,10 +173,7 @@ function Carousel(props: IProps) {
           {groupedElements.map((elementGroup, index) => (
             <div key={index} className={`${css["slide"]}`}>
               {elementGroup.map((element, index) => (
-                <div
-                  key={index}
-                  style={{ minWidth: "0", height: "fit-content" }}
-                >
+                <div key={index} style={{ minWidth: "0" }}>
                   {element.element}
                 </div>
               ))}

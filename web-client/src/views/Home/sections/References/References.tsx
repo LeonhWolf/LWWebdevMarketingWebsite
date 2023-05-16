@@ -30,7 +30,7 @@ function References() {
           projectType="portfolio"
           startDate={new Date("2023-05-01")}
           bodyText={t("references.projects.marketingWebsite.bodyText")}
-          bottomIcons={[
+          technologyIcons={[
             technologyIcons.react,
             technologyIcons.typescript,
             technologyIcons.reactRouter,
@@ -55,7 +55,7 @@ function References() {
           projectType="portfolio"
           startDate="WIP"
           bodyText={t("references.projects.songwritingTool.bodyText")}
-          bottomIcons={[
+          technologyIcons={[
             technologyIcons.react,
             technologyIcons.typescript,
             technologyIcons.reactRouter,
@@ -97,7 +97,7 @@ function References() {
           startDate={new Date("2023-03-01")}
           bodyText={t("references.projects.senacor.bodyText")}
           headerImagePath={senacorLogo}
-          bottomIcons={[technologyIcons.wordpress, technologyIcons.php]}
+          technologyIcons={[technologyIcons.wordpress, technologyIcons.php]}
         />
       ),
     },
@@ -110,7 +110,7 @@ function References() {
           startDate={new Date("2023-02-01")}
           endDate={new Date("2023-03-01")}
           bodyText={t("references.projects.ndaProject.bodyText")}
-          bottomIcons={[
+          technologyIcons={[
             technologyIcons.vueJs,
             technologyIcons.typescript,
             technologyIcons.vueRouter,
@@ -130,7 +130,7 @@ function References() {
           startDate={new Date("2021-12-01")}
           endDate={new Date("2022-06-01")}
           bodyText={t("references.projects.spacific.bodyText")}
-          bottomIcons={[
+          technologyIcons={[
             technologyIcons.angular,
             technologyIcons.typescript,
             technologyIcons.bootstrap,
@@ -157,7 +157,7 @@ function References() {
           projectType="portfolio"
           startDate={new Date("2021-11-01")}
           bodyText={t("references.projects.objectWritingTool.bodyText")}
-          bottomIcons={[
+          technologyIcons={[
             technologyIcons.vueJs,
             technologyIcons.express,
             technologyIcons.jest,
@@ -180,7 +180,7 @@ function References() {
           projectType="education"
           startDate={new Date("2021-06-01")}
           bodyText={t("references.projects.tutoring.bodyText")}
-          bottomIcons={[technologyIcons.python, technologyIcons.pyQt]}
+          technologyIcons={[technologyIcons.python, technologyIcons.pyQt]}
         />
       ),
     },

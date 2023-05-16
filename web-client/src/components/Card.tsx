@@ -1,5 +1,3 @@
-import IconOutline from "./IconOutline";
-import type { IProps as IIconOutline } from "./IconOutline";
 import css from "./Card.module.scss";
 
 export interface IProps {
@@ -9,7 +7,6 @@ export interface IProps {
   topIconStyle?: "solid" | "outline";
   topIconColor?: string;
   topIconPath?: string;
-  bottomIcons?: IIconOutline[];
   children?: React.ReactElement;
   headerImagePath?: string;
   leftImagePath?: string;
@@ -88,23 +85,9 @@ function Card(props: IProps) {
         >
           <p className="card-text mb-0">{props.bodyText}</p>
 
-          {props.bottomIcons !== undefined && props.bottomIcons.length > 0 && (
-            <div
-              className="d-flex mt-auto"
-              style={{ columnGap: "12px", rowGap: "8px", flexWrap: "wrap" }}
-            >
-              {props.bottomIcons.map((bottomIcon, index) => (
-                <IconOutline
-                  key={index}
-                  iconPath={bottomIcon.iconPath}
-                  borderColor={bottomIcon.borderColor}
-                  tooltipText={bottomIcon.tooltipText}
-                />
-              ))}
-            </div>
+          {props.children !== undefined && (
+            <div className="mt-auto">{props.children}</div>
           )}
-
-          {props.children !== undefined && <div>{props.children}</div>}
         </div>
       </div>
     </div>

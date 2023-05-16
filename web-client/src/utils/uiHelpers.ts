@@ -32,7 +32,7 @@ import dockerLogo from "../assets/PNG/docker-logo.png";
 
 type TechnologyIcon = Required<IIconOutline>;
 
-interface ITechnologyIcons {
+export interface ITechnologyIcons {
   react: TechnologyIcon;
   typescript: TechnologyIcon;
   reactRouter: TechnologyIcon;

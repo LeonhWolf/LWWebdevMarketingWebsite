@@ -10,15 +10,15 @@ export interface IProps {
 }
 
 function IconOutline(props: IProps) {
-  const bottomIconWrapper = useRef<HTMLDivElement | null>(null);
+  const wrapperElement = useRef<HTMLDivElement | null>(null);
   const tooltip = useRef<Tooltip | null>(null);
 
   useEffect(() => {
-    if (bottomIconWrapper.current === null)
+    if (wrapperElement.current === null)
       return console.error(
         "The Bootstrap tooltip could not be instantiated. The ref for the HTML Element is 'null'."
       );
-    tooltip.current = new Tooltip(bottomIconWrapper.current);
+    tooltip.current = new Tooltip(wrapperElement.current);
 
     return () => {
       tooltip.current?.dispose();
@@ -27,7 +27,7 @@ function IconOutline(props: IProps) {
 
   return (
     <div
-      ref={bottomIconWrapper}
+      ref={wrapperElement}
       className={css["icon-wrapper"]}
       style={{ borderColor: props.borderColor }}
       data-bs-title={props.tooltipText}

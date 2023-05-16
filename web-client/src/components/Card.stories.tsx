@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import type { IProps } from "./Card";
 import Card from "./Card";
 import rocketIcon from "../assets/SVG/rocket-takeoff.svg";
-import postmanLogo from "../assets/PNG/postman-logo.png";
-import typeScriptLogo from "../assets/PNG/typescript-logo.png";
 import udemyLogo from "../assets/SVG/Udemy_logo.svg";
 import mongoDbLogo from "../assets/PNG/mongo-db-logo.png";
 import senacorLogo from "../assets/PNG/senacor-logo.png";
@@ -156,117 +153,12 @@ export const LeftImageMobile: Story = {
   ),
 };
 
-const iconsNoPlaceholder: IProps["bottomIcons"] = [
-  {
-    iconPath: postmanLogo,
-    borderColor: "#FF6C37",
-  },
-  {
-    iconPath: typeScriptLogo,
-    borderColor: "#2D79C7",
-  },
-  {
-    iconPath: postmanLogo,
-    borderColor: "#FF6C37",
-  },
-  {
-    iconPath: typeScriptLogo,
-    borderColor: "#2D79C7",
-  },
-  {
-    iconPath: postmanLogo,
-    borderColor: "#FF6C37",
-  },
-  {
-    iconPath: typeScriptLogo,
-    borderColor: "#2D79C7",
-  },
-];
-export const bottomIconsNoPlaceholder: Story = {
+export const BodyTextAndInsertedBottomElement: Story = {
   render: () => (
     <div style={{ width: "400px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        bottomIcons={iconsNoPlaceholder}
-      />
-    </div>
-  ),
-};
-const iconsWithPlaceholders: IProps["bottomIcons"] = [
-  {
-    iconPath: postmanLogo,
-    borderColor: "#FF6C37",
-    tooltipText: "Postman",
-  },
-  {
-    iconPath: typeScriptLogo,
-    borderColor: "#2D79C7",
-    tooltipText: "TypeScript",
-  },
-  {
-    iconPath: postmanLogo,
-    borderColor: "#FF6C37",
-    tooltipText: "Postman",
-  },
-  {
-    iconPath: typeScriptLogo,
-    borderColor: "#2D79C7",
-    tooltipText: "TypeScript",
-  },
-  {
-    iconPath: postmanLogo,
-    borderColor: "#FF6C37",
-    tooltipText: "Postman",
-  },
-  {
-    iconPath: typeScriptLogo,
-    borderColor: "#2D79C7",
-    tooltipText: "TypeScript",
-  },
-];
-export const bottomIconsWithPlaceholders: Story = {
-  render: () => (
-    <div style={{ width: "400px" }}>
-      <Card
-        title="Test Title"
-        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        bottomIcons={iconsWithPlaceholders}
-      />
-    </div>
-  ),
-};
-
-export const bottomIconsStretchedHeight: Story = {
-  render: () => (
-    <div style={{ width: "400px", height: "300px" }}>
-      <Card
-        title="Test Title"
-        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        bottomIcons={iconsWithPlaceholders}
-      />
-    </div>
-  ),
-};
-export const bottomIconsWrap: Story = {
-  render: () => (
-    <div style={{ width: "300px" }}>
-      <Card
-        title="Test Title"
-        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        bottomIcons={iconsWithPlaceholders}
-      />
-    </div>
-  ),
-};
-
-export const bottomElementInserted: Story = {
-  render: () => (
-    <div style={{ width: "400px" }}>
-      <Card
-        title="Test Title"
-        bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
-        bottomIcons={iconsWithPlaceholders}
       >
         <a href="#">some link</a>
       </Card>
@@ -274,9 +166,9 @@ export const bottomElementInserted: Story = {
   ),
 };
 
-export const BodyTextAndInsertedBottomElement: Story = {
+export const InsertedBottomElementStretchedHeight: Story = {
   render: () => (
-    <div style={{ width: "400px" }}>
+    <div style={{ width: "400px", height: "300px" }}>
       <Card
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"

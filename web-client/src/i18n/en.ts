@@ -92,6 +92,8 @@ const references: IReferences = {
     seeEmploymentReferenceLetter: "employment reference letter",
     seeUiDesign: "UI design",
     seeSoftwareRequirementsSpecification: "software requirements specification",
+    technologies: "Technologies",
+    links: "Links",
     projectTypes: {
       freelancing: "Freelancing",
       employment: "Employment",
