@@ -8,6 +8,10 @@ interface IElement {
   key: string;
   element: ReactElement;
 }
+interface IGroupedElementIndices {
+  key: string;
+  index: number;
+}
 export interface IProps {
   elementsWidthPixels: number;
   elements: IElement[];
@@ -28,7 +32,9 @@ function Carousel(props: IProps) {
   const parentElement = useRef<HTMLDivElement | null>(null);
   const allSlidesElement = useRef<HTMLDivElement | null>(null);
   const carouselIndicatorElements = useRef<(HTMLElement | null)[]>([]);
-  const [groupedElements, setGroupedElements] = useState<IElement[][]>([[]]);
+  const [groupedElementIndices, setGroupedElementIndices] = useState<
+    IGroupedElementIndices[][]
+  >([[]]);
 
   const updateCarouselIndicators = (): void => {
     if (carouselIndicatorElements.current.length === 0)
@@ -63,7 +69,7 @@ function Carousel(props: IProps) {
   };
 
   const advanceSlide = (): void => {
-    if (currentSlide.current + 1 > groupedElements.length - 1) return;
+    if (currentSlide.current + 1 > groupedElementIndices.length - 1) return;
     setCurrentSlide(currentSlide.current + 1);
   };
   const rewindSlide = (): void => {
@@ -128,17 +134,21 @@ function Carousel(props: IProps) {
       elementsPerSlide = 2;
     }
 
-    let newlyGroupedElements: IElement[][] = [[]];
+    let newlyGroupedElementIndices: typeof groupedElementIndices = [[]];
     props.elements.forEach((element, index) => {
       const groupIndex = Math.floor(index / elementsPerSlide);
 
-      const currentGroup = newlyGroupedElements[groupIndex];
-      if (currentGroup === undefined) newlyGroupedElements[groupIndex] = [];
+      const currentGroup = newlyGroupedElementIndices[groupIndex];
+      if (currentGroup === undefined)
+        newlyGroupedElementIndices[groupIndex] = [];
 
-      newlyGroupedElements[groupIndex].push(element);
+      newlyGroupedElementIndices[groupIndex].push({
+        key: element.key,
+        index: index,
+      });
     });
 
-    setGroupedElements(newlyGroupedElements);
+    setGroupedElementIndices(newlyGroupedElementIndices);
   };
 
   useEffect(() => {
@@ -170,11 +180,11 @@ function Carousel(props: IProps) {
           id={css["all-slides"]}
           className="w-100 d-flex"
         >
-          {groupedElements.map((elementGroup, index) => (
+          {groupedElementIndices.map((indexGroup, index) => (
             <div key={index} className={`${css["slide"]}`}>
-              {elementGroup.map((element, index) => (
+              {indexGroup.map((element, index) => (
                 <div key={index} style={{ minWidth: "0" }}>
-                  {element.element}
+                  {props.elements[element.index].element}
                 </div>
               ))}
             </div>
@@ -185,7 +195,7 @@ function Carousel(props: IProps) {
           className="d-flex justify-content-center mt-3"
           style={{ columnGap: "10px" }}
         >
-          {groupedElements.map((elementGroup, index) => (
+          {groupedElementIndices.map((indexGroup, index) => (
             <button
               key={index}
               ref={(element) =>
