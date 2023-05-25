@@ -1,6 +1,6 @@
 FROM node:16
 
-MAINTAINER Leonhard Wolf
+LABEL maintainer="Leonhard Wolf"
 
 # Copy repository data to container.
 WORKDIR /usr/src/app
@@ -11,7 +11,7 @@ WORKDIR /usr/src/app/web-client
 RUN npm install && npm run build
 
 # Move the web-client files to the web-server's public folder.
-RUN mv ./build ../web-server/public
+RUN cp -a ./build/. ../web-server/public/marketingWebsite
 
 EXPOSE 5500
 

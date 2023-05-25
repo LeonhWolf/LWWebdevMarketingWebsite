@@ -111,7 +111,8 @@ const Navbar = () => {
     };
   }, []);
   useEffect(() => {
-    detectBrowserLanguage();
+    // Without it changing language will not affect all components (perhaps some rendering reason?)
+    setTimeout(detectBrowserLanguage);
   }, []);
 
   return (
