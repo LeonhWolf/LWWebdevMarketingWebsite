@@ -90,22 +90,28 @@ function Hero() {
                 </h1>
                 <div id={css["hero-description-text"]}>
                   <span className={css["hero-regular-text"]}>
-                    {t("hero.bodyText.plain1") + " "}
+                    {t("hero.bodyText.plain1")}
                   </span>
                   <span className={css["hero-bold-text"]}>
-                    {t("hero.bodyText.bold1") + " "}
+                    {t("hero.bodyText.bold1")}
                   </span>
                   <span className={css["hero-regular-text"]}>
-                    {t("hero.bodyText.plain2") + " "}
+                    {t("hero.bodyText.plain2")}
                   </span>
                   <span className={css["hero-bold-text"]}>
-                    {t("hero.bodyText.bold2") + " "}
+                    {t("hero.bodyText.bold2")}
                   </span>
                   <span className={css["hero-regular-text"]}>
-                    {t("hero.bodyText.plain3") + " "}
+                    {t("hero.bodyText.plain3")}
                   </span>
                   <span className={css["hero-bold-text"]}>
                     {t("hero.bodyText.bold3")}
+                  </span>
+                  <span className={css["hero-regular-text"]}>
+                    {t("hero.bodyText.plain4")}
+                  </span>
+                  <span className={css["hero-bold-text"]}>
+                    {t("hero.bodyText.bold4")}
                   </span>
                   <span className={css["hero-regular-text"]}>.</span>
                 </div>

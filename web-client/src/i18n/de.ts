@@ -26,22 +26,24 @@ const hero: IHero = {
   bigTitle: "Leonhard Wolf",
   contactButtonText: "Kontakt",
   bodyText: {
-    plain1: "Ich unterstütze",
-    bold1: "Tech Startups",
-    plain2: "bei der Entwicklung",
-    bold2: "zuverlässiger Web Apps",
-    plain3: "durch meine",
-    bold3: "Zufriedenheitsgarantie",
+    plain1: "Mein Ziel ist es, ",
+    bold1: "Web Apps",
+    plain2: " zu entwickeln, die ",
+    bold2: "intuitiv",
+    plain3: " zu verwenden sind. Sowohl für ",
+    bold3: "Nutzer",
+    plain4: " als auch für ",
+    bold4: "Entwickler",
   },
 };
 
 const service: IService = {
   smallTitle: "Service",
   bigTitle: "MERN Entwicklung",
-  satisfactionGuarantee: {
-    title: "Zufriedenheitsgarantie",
+  effortlessWebApps: {
+    title: "Intuitive Web-Apps",
     bodyText:
-      "Ich bin davon überzeugt, dass qualitativ hochwertige Software das Fundament für erfolgreiche SaaS/PaaS Unternehmen ist. Deshalb entscheiden der Kunde und ich zusammen, wann meine Arbeit den angestrebten Standard erreicht hat.",
+      "Ich bin davon überzeugt, dass qualitativ hochwertige Software das Fundament für erfolgreiche SaaS/PaaS Unternehmen ist. Deshalb ist mein Fokus sowohl Testing und Verbesserung der UX, als auch Clean Code.",
   },
   frontEndDevelopment: {
     title: "Front-End Entwicklung",
@@ -163,7 +165,7 @@ const references: IReferences = {
 
 const about: IAbout = {
   title: "Erfolgreiche Web Apps zusammen entwickeln!",
-  bodyText: `Ein hoher Standard ist eine Voraussetzung, die ich an meine eigene Arbeit stelle. Diese "Leidenschaft für Präzision" ist mir persönlich wichtig. Ich möchte die Bedürfnisse meiner Kunden verstehen, um eine Web App liefern zu können, welche eben diese Ansprüche voll erfüllt. Ein professioneller und offener Umgang ist selbstverständlich.`,
+  bodyText: `Ein hoher Standard ist eine Voraussetzung, die ich an meine eigene Arbeit stelle. Diese "Leidenschaft für Präzision" ist mir persönlich wichtig. Ich möchte die Anforderungen an Software verstehen, um eine Web-App liefern zu können, welche eben diese Ansprüche voll erfüllt. Ein professioneller und offener Umgang ist selbstverständlich.`,
 };
 
 const modalContact: IModalContact = {

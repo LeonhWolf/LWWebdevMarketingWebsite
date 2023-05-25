@@ -26,22 +26,24 @@ const hero: IHero = {
   bigTitle: "Leonhard Wolf",
   contactButtonText: "Contact",
   bodyText: {
-    plain1: "I support",
-    bold1: "tech startups",
-    plain2: "to develop",
-    bold2: "reliable web apps",
-    plain3: "with my",
-    bold3: "satisfaction guarantee",
+    plain1: "I aim to develop ",
+    bold1: "web apps",
+    plain2: " that are ",
+    bold2: "effortless",
+    plain3: " to use. Both for ",
+    bold3: "users",
+    plain4: " and ",
+    bold4: "developers",
   },
 };
 
 const service: IService = {
   smallTitle: "Service",
   bigTitle: "MERN Development",
-  satisfactionGuarantee: {
-    title: "Satisfaction Guarantee",
+  effortlessWebApps: {
+    title: "Effortless Web Apps",
     bodyText:
-      "I am convinced that SaaS/PaaS business success is grounded on great quality software. So I won't cut corners. The client and me decide together when my work has reached the standard we strive for.",
+      "I am convinced that SaaS/PaaS business success is grounded on great-quality software. So I focus on testing code and improving UX as well as writing clean code.",
   },
   frontEndDevelopment: {
     title: "Front-End Development",
@@ -164,7 +166,7 @@ const references: IReferences = {
 
 const about: IAbout = {
   title: "Let's build successful web apps together!",
-  bodyText: `A high standard is a requirement I set for my own work. This "passion for precision" is something that is of importance for myself. I want to understand my client's needs and do my best to meet them fully. A professional and open way of communicating goes without saying.`,
+  bodyText: `A high standard is a requirement I set for my own work. This "passion for precision" is something that is of importance for myself. I want to understand the software requirements and do my best to meet them fully. A professional and open way of communicating goes without saying.`,
 };
 
 const modalContact: IModalContact = {

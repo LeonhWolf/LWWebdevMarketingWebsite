@@ -22,8 +22,8 @@ function Service() {
         />
         <div id={css["cards-wrapper"]}>
           <Card
-            title={t("service.satisfactionGuarantee.title")}
-            bodyText={t("service.satisfactionGuarantee.bodyText")}
+            title={t("service.effortlessWebApps.title")}
+            bodyText={t("service.effortlessWebApps.bodyText")}
             titleColor="#0088F1"
             topIconColor="#0088F1"
             topIconPath={rocketIcon}

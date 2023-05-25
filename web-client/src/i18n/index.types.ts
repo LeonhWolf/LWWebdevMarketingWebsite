@@ -1,7 +1,7 @@
 import { ITextInput, IEmailInput, ITextarea } from "../components/Form";
 
 export interface INavigation {
-  [service: string]: string;
+  service: string;
   process: string;
   references: string;
   about: string;
@@ -15,33 +15,30 @@ interface IHeadings {
 }
 
 export interface IHero extends IHeadings {
-  [key: string]: string | Object;
   contactButtonText: string;
   bodyText: {
-    [key: string]: string;
     plain1: string;
     bold1: string;
     plain2: string;
     bold2: string;
     plain3: string;
     bold3: string;
+    plain4: string;
+    bold4: string;
   };
 }
 
 interface ICard {
-  [key: string]: string;
   title: string;
   bodyText: string;
 }
 export interface IService extends IHeadings {
-  [key: string]: string | Object;
-  satisfactionGuarantee: ICard;
+  effortlessWebApps: ICard;
   frontEndDevelopment: ICard;
   backEndDevelopment: ICard;
 }
 
 export interface IProcess extends IHeadings {
-  [key: string]: string | Object;
   frontEnd: ICard;
   backEnd: ICard;
   testing: ICard;
@@ -55,18 +52,14 @@ export interface IProjectTypes {
   education: string;
 }
 interface ICourseCard {
-  [key: string]: string;
   body: string;
 }
 export interface IReferences extends IHeadings {
-  [key: string]: string | Object;
   tabTitles: {
-    [key: string]: string;
     projects: string;
     courses: string;
   };
   projects: {
-    [key: string]: Object;
     seeCode: string;
     seeEmploymentReferenceLetter: string;
     seeUiDesign: string;
@@ -83,7 +76,6 @@ export interface IReferences extends IHeadings {
     tutoring: ICard;
   };
   courses: {
-    [key: string]: string | Object;
     seeCertificateButton: string;
     javascriptAdvancedConcepts: ICourseCard;
     dataStructuresAndAlgorithms: ICourseCard;
@@ -143,7 +135,6 @@ export interface IMiscellaneous {
   legal: string;
 }
 export default interface Ii18nStrings {
-  [key: string]: Object;
   navigation: INavigation;
   hero: IHero;
   service: IService;
