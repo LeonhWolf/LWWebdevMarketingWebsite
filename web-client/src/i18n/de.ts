@@ -103,9 +103,9 @@ const references: IReferences = {
       education: "Unterricht",
     },
     marketingWebsite: {
-      title: "Marketing Website",
+      title: "Porfolio Website",
       bodyText:
-        "Diese Marketing Webseite. Features sind i18n, selbst erstellte Components wie dieses Carousel, Ladezeitenoptimierung.",
+        "Diese Portfolio Webseite. Features sind i18n, selbst erstellte Components wie dieses Carousel, Ladezeitenoptimierung.",
     },
     songwritingTool: {
       title: "Songwriting Tool",

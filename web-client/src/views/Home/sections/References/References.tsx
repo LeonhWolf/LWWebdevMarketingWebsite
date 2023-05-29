@@ -223,17 +223,6 @@ function References() {
       ),
     },
     {
-      key: "OWASP top 10: Web Application Security for Beginners",
-      element: (
-        <CardCertificate
-          title="OWASP top 10: Web Application Security for Beginners"
-          bodyText={t("references.courses.owaspTopTen.body")}
-          certificateCompany="udemy"
-          link="https://www.udemy.com/certificate/UC-342ca0ec-30d0-496b-9a69-3acc30ad2df1/"
-        />
-      ),
-    },
-    {
       key: "MongoDB Basics",
       element: (
         <CardCertificate
@@ -263,6 +252,17 @@ function References() {
           bodyText={t("references.courses.mongoDbDataModeling.body")}
           certificateCompany="mongoDbUniversity"
           link="https://university.mongodb.com/course_completion/db140e66-dc47-46a7-ad37-8cc2af1c5644"
+        />
+      ),
+    },
+    {
+      key: "OWASP top 10: Web Application Security for Beginners",
+      element: (
+        <CardCertificate
+          title="OWASP top 10: Web Application Security for Beginners"
+          bodyText={t("references.courses.owaspTopTen.body")}
+          certificateCompany="udemy"
+          link="https://www.udemy.com/certificate/UC-342ca0ec-30d0-496b-9a69-3acc30ad2df1/"
         />
       ),
     },

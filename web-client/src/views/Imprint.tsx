@@ -16,7 +16,7 @@ function EN() {
         <br />
         {legalData.address.zipCode}&nbsp;{legalData.address.city}
         <br />
-        Phone:&nbsp;{legalData.phoneNumber}
+        Phone: on request
         <br />
         E-Mail:&nbsp;{legalData.emailAddress}
       </p>
@@ -53,7 +53,7 @@ function DE() {
         <br />
         {legalData.address.zipCode}&nbsp;{legalData.address.city}
         <br />
-        Telefon:&nbsp;{legalData.phoneNumber}
+        Telefon: auf Anfrage
         <br />
         E-Mail:&nbsp;{legalData.emailAddress}
       </p>

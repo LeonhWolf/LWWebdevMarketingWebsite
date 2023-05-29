@@ -103,9 +103,9 @@ const references: IReferences = {
       education: "Education",
     },
     marketingWebsite: {
-      title: "Marketing Website",
+      title: "Portfolio Website",
       bodyText:
-        "This very marketing website. It includes i18n, custom front-end components like this carousel, loading time optimization.",
+        "This very portfolio website. It includes i18n, custom front-end components like this carousel, loading time optimization.",
     },
     songwritingTool: {
       title: "Songwriting Tool",
@@ -144,7 +144,7 @@ const references: IReferences = {
       body: "JavaScript engine, event loop, callback & job queue, OOP & FP, error handling.",
     },
     dataStructuresAndAlgorithms: {
-      body: "Big O notation, arrays, hash tables, linked lists, stacks & queues, trees, graphs, recursion, sorting, searching, dynamic programming",
+      body: "Big O notation, arrays, hash tables, linked lists, stacks & queues, trees, graphs, recursion, sorting, searching, dynamic programming.",
     },
     mongoDbBasics: {
       body: "CRUD operations, introduction to the Aggregation Pipeline.",
