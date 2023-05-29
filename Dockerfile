@@ -7,11 +7,11 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Build the web-client.
-WORKDIR /usr/src/app/web-client
-RUN npm install && npm run build
+# WORKDIR /usr/src/app/web-client
+# RUN npm install && npm run build
 
 # Move the web-client files to the web-server's public folder.
-RUN cp -a ./build/. ../web-server/public/marketingWebsite
+# RUN cp -a ./build/. ../web-server/public/marketingWebsite
 
 EXPOSE 5500
 

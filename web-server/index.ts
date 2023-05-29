@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import cors from "cors";
 import expressStaticGzip from "express-static-gzip";
 
@@ -16,11 +17,15 @@ app.use(
   })
 );
 app.use(
-  expressStaticGzip("./public", {
+  expressStaticGzip(path.join(__dirname, "./public/portfolioWebsite"), {
     enableBrotli: true,
     orderPreference: ["br", "gzip"],
   })
 );
+// .use(
+//   "/object-writing-tool-demo",
+//   express.static(path.join(__dirname, "./public/objectWritingTool_demo"))
+// );
 
 const mailFormContactRoute: MailFormContactRoute = "/contact-form";
 app.post(mailFormContactRoute, contactFormPostHandler);
