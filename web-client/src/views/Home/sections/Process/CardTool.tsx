@@ -10,7 +10,9 @@ export interface IProps
 function CardTool(props: IProps) {
   return (
     <Card title={props.title} bodyText={props.bodyText}>
-      <ListIcons icons={props.icons} />
+      <div className="h-100 d-flex flex-column justify-content-end">
+        <ListIcons icons={props.icons} />
+      </div>
     </Card>
   );
 }

@@ -41,7 +41,7 @@ function References() {
           externalLinks={[
             {
               link: "https://github.com/LeonhWolf/LWWebdevMarketingWebsite",
-              text: t("references.projects.seeCode"),
+              text: t("references.projects.seeRepository"),
             },
           ]}
         />
@@ -72,7 +72,7 @@ function References() {
           externalLinks={[
             {
               link: "https://github.com/LeonhWolf/songwriting-tool/tree/dev",
-              text: t("references.projects.seeCode"),
+              text: t("references.projects.seeRepository"),
             },
             {
               text: t("references.projects.seeUiDesign"),
@@ -82,7 +82,15 @@ function References() {
               text: t(
                 "references.projects.seeSoftwareRequirementsSpecification"
               ),
-              link: songwritingToolSRS,
+              link: "https://github.com/LeonhWolf/songwriting-tool/blob/96bfba54b7d51ecee168a3830a0a6ffc02069069/documentation/SoftwareRequirementsSpecification.md",
+            },
+            {
+              text: t("references.projects.seeDesignDocument"),
+              link: "https://github.com/LeonhWolf/songwriting-tool/blob/4239a481c185195e99c8ba56e743d505aa7e72a6/documentation/DesignDocument.md",
+            },
+            {
+              text: t("references.projects.seeEntityRelationshipDiagram"),
+              link: "https://www.figma.com/file/5wM83HPJtCrqyDxmBfdHEV/SongwritingTool_EntityRelationshipDiagram?type=design&node-id=103%3A44&mode=design&t=pZY550fumAOHf9PB-1",
             },
           ]}
         />
@@ -166,7 +174,7 @@ function References() {
           externalLinks={[
             {
               link: "https://bitbucket.org/LeonhardWolf/objectwritingtool/src/master/",
-              text: t("references.projects.seeCode"),
+              text: t("references.projects.seeRepository"),
             },
           ]}
         />

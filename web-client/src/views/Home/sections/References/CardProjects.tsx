@@ -90,28 +90,6 @@ function CardProject(props: ICardProjectProps) {
       },
     ];
 
-    if (props.externalLinks !== undefined && props.externalLinks.length > 0) {
-      const externalLinksAccordionItem: (typeof accordionItems)[0] = {
-        id: "external-links",
-        title: t("references.projects.links"),
-        element: (
-          <div className="d-flex flex-column" style={{ rowGap: "10px" }}>
-            {props.externalLinks?.map((externalLink) => (
-              <a
-                key={externalLink.link}
-                href={externalLink.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {externalLink.text}
-              </a>
-            ))}
-          </div>
-        ),
-      };
-      newAccordionItems.push(externalLinksAccordionItem);
-    }
-
     setAccordionItems(newAccordionItems);
   }, [props.technologyIcons, props.externalLinks, i18n.language]);
 
@@ -127,7 +105,22 @@ function CardProject(props: ICardProjectProps) {
       }
       bodyText={props.bodyText}
     >
-      <Accordion items={accordionItems} />
+      <div className="d-flex flex-column" style={{ rowGap: "10px" }}>
+        <div className="d-flex flex-column justify-content-start">
+          {props.externalLinks?.map((externalLink) => (
+            <a
+              key={externalLink.link}
+              href={externalLink.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {externalLink.text}
+            </a>
+          ))}
+        </div>
+
+        <Accordion items={accordionItems} />
+      </div>
     </Card>
   );
 }

@@ -60,10 +60,12 @@ export interface IReferences extends IHeadings {
     courses: string;
   };
   projects: {
-    seeCode: string;
+    seeRepository: string;
     seeEmploymentReferenceLetter: string;
     seeUiDesign: string;
     seeSoftwareRequirementsSpecification: string;
+    seeEntityRelationshipDiagram: string;
+    seeDesignDocument: string;
     technologies: string;
     links: string;
     projectTypes: IProjectTypes;

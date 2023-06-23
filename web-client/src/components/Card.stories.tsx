@@ -173,7 +173,9 @@ export const InsertedBottomElementStretchedHeight: Story = {
         title="Test Title"
         bodyText="mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin"
       >
-        <a href="#">some link</a>
+        <div className="h-100 d-flex flex-column justify-content-end">
+          <a href="#">some link</a>
+        </div>
       </Card>
     </div>
   ),

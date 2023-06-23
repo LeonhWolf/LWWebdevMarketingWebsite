@@ -42,9 +42,11 @@ function CardCertificate(props: ICardCertificateProps) {
         certificateCompanyStyles[props.certificateCompany].iconColor
       }
     >
-      <a href={props.link} target="_blank" rel="noreferrer">
-        {t("references.courses.seeCertificateButton")}
-      </a>
+      <div className="h-100 d-flex flex-column justify-content-end">
+        <a href={props.link} target="_blank" rel="noreferrer">
+          {t("references.courses.seeCertificateButton")}
+        </a>
+      </div>
     </Card>
   );
 }

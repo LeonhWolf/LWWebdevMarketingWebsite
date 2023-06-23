@@ -86,7 +86,7 @@ function Card(props: IProps) {
           <p className="card-text mb-0">{props.bodyText}</p>
 
           {props.children !== undefined && (
-            <div className="mt-auto">{props.children}</div>
+            <div className="h-100">{props.children}</div>
           )}
         </div>
       </div>

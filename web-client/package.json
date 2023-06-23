@@ -21,14 +21,14 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "set BROWSER=none&& react-scripts start",
     "build": "react-scripts build && compress-cra && npm run update-web-server-build",
     "update-web-server-build": "npm run remove-web-server-build && npm run move-build-to-web-server",
     "remove-web-server-build": "cd .. && cd web-server && cd ./public && IF EXIST ./portfolioWebsite rmdir portfolioWebsite /s /q",
     "move-build-to-web-server": "cd .. && xcopy \"./web-client/build\" \"./web-server/public/portfolioWebsite\" /s /i /q",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
   "eslintConfig": {

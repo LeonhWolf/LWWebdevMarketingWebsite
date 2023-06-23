@@ -90,10 +90,12 @@ const references: IReferences = {
     courses: "Kurse",
   },
   projects: {
-    seeCode: "Code",
+    seeRepository: "Repository",
     seeEmploymentReferenceLetter: "Arbeitszeugnis",
     seeUiDesign: "UI Design",
     seeSoftwareRequirementsSpecification: "Software Requirements Specification",
+    seeEntityRelationshipDiagram: "Entity-Relationship-Modell",
+    seeDesignDocument: "Design Dokument",
     technologies: "Technologien",
     links: "Links",
     projectTypes: {
